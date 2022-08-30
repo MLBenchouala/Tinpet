@@ -11,4 +11,8 @@ class User < ApplicationRecord
   # validates :description,  length: { maximum: 400 }
 
   has_many_attached :photos
+
+  def matches
+    Match.where(user1: self).or(Match.where(user2: self))
+  end
 end
