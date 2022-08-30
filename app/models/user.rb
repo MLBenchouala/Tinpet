@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :matches, dependent: :destroy
   has_many :swipes, dependent: :destroy
   validates :name, :email, :adresse, :number, :age, :photos, :description, :genre, :orientation, presence: true
-  validates :description,  length: { maximum: 140 }
+  validates :description,  length: { maximum: 400 }
 end
