@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
@@ -16,5 +20,11 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(resource)
     user_path(current_user) # your path
+  end
+
+  private
+
+  def skip_pundit?
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 end
