@@ -1,0 +1,2 @@
+class MatchedSwipesController < ApplicationController
+end
