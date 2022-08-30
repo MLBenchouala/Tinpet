@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Match.destroy_all
+Swipe.destroy_all
 Pet.destroy_all
 User.destroy_all
 
-
+puts 'Users creation...'
 user_1 = User.create(name: "Louis", description: "Je suis en panne d'inspi donc je compte sur mon chien pour trouver la bonne", age: 22, gender: "homme", orientation: "hétéro", email: "teste.exemple@test.com", password: "123456")
 user_1.save!
 user_2 = User.create(name: "Jade", description: "Ma chienne veut faire de nouvelles rencontres et moi aussi", age: 25, gender: "femme", orientation: "hétéro", email: "testa.exemple@test.com", password: "123456")
@@ -26,7 +28,9 @@ user_7 = User.create(name: "Laura", description: "Je souhaite rencontrer des gen
 user_7.save!
 user_8 = User.create(name: "Bertrand", description: "Je suis pas ici pour me balader", age: 54, gender: "homme", orientation: "hétéro", email: "testx.exemple@test.com", password: "123456")
 user_8.save!
+puts "Created #{User.count} users"
 
+puts 'Pets creation...'
 pet_1 = Pet.new(name: "Rex", sexe: "male", race: "Labrador", age: 5, description: "Salut je m'appelle Rex et je crois que Louis a vraiment besoin d'aide", user: user_1)
 file = URI.open("https://static.wamiz.com/images/animaux/chiens/large/labrador-retriever.jpg")
 pet_1.photos.attach(io: file, filename: "animal")
@@ -72,5 +76,22 @@ file = URI.open("https://www.illicoveto.com/wp-content/uploads/berger-australien
 pet_9.photos.attach(io: file, filename: "animal")
 pet_9.save!
 
-p "Created #{User.count} users"
-p "Created #{Pet.count} pets"
+puts "Created #{Pet.count} pets"
+
+puts 'Swipes creation...'
+user_1_for_user_2_pet = Swipe.create(user: user_1, pet: user_2.pets.first, liked: true)
+Swipe.create(user: user_1, pet: user_3.pets.first, liked: false)
+user_1_for_user_4_pet = Swipe.create(user: user_1, pet: user_4.pets.first, liked: true)
+Swipe.create(user: user_1, pet: user_5.pets.first, liked: false)
+
+user_2_for_user_1_pet = Swipe.create(user: user_2, pet: user_1.pets.first, liked: true)
+user_4_for_user_1_pet = Swipe.create(user: user_4, pet: user_1.pets.first, liked: true)
+
+puts 'Matches creation...'
+match_user_1_with_user_2 = Match.create(user1: user_1, user2: user_2)
+MatchedSwipe.create(match: match_user_1_with_user_2, swipe: user_1_for_user_2_pet)
+MatchedSwipe.create(match: match_user_1_with_user_2, swipe: user_2_for_user_1_pet)
+
+match_user_1_with_user_4 = Match.create(user1: user_4, user2: user_1)
+MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_1_for_user_4_pet)
+MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_4_for_user_1_pet)
