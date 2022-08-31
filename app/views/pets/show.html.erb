@@ -1,4 +1,7 @@
 <h2><%= @pet.name %></h2>
+<% @pet.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <% if policy(@pet).edit? %>
   <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
 <% end %>
