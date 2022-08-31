@@ -10,4 +10,7 @@ class Match < ApplicationRecord
   #   declined: 2,
   #   removed: 3
   # }
+  def interlocutor_of(user)
+    user == first_user ? second_user : first_user
+  end
 end
