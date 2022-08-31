@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   # has_many :matches, dependent: :destroy
   has_many :swipes, dependent: :destroy
-  validates :name, :gender, presence: true
+  validates :name, :gender, :walk, :more, presence: true
   # validates :description,  length: { maximum: 400 }
 
   has_many_attached :photos
