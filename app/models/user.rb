@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,6 +11,14 @@ class User < ApplicationRecord
   has_many :swipes, dependent: :destroy
   validates :name, :gender, presence: true
   validates :walk, :more, inclusion: { in: [ true, false ] }
+  has_many :matches,
+            ->(user) {
+              unscope(where: :user_id)
+              .where("first_user_id = :user_id OR second_user_id = :user_id", user_id: user.id)
+            },
+            class_name: 'Match',
+            dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   # validates :description,  length: { maximum: 400 }
 

@@ -1,4 +1,4 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to 'Sign in', new_user_session_path %>
-<%= link_to 'Sign in', new_user_registration_path %>
+<%= link_to 'Log in', new_user_session_path, class: 'btn btn-primary mx-auto' %>
+<%= link_to 'Sign in', new_user_registration_path, class: 'btn btn-primary mx-auto' %>
+
+<%= link_to "My chatrooms", matches_path, class: 'btn btn-primary mx-auto' %>
