@@ -1,0 +1,11 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :gender %>
+  <%= f.input :orientation %>
+  <%= f.input :description %>
+  <%= f.input :walk %>
+  <%= f.input :more %>
+  <%= f.submit %>
+<% end %>
+<%= link_to 'list all pets', pets_path %>
