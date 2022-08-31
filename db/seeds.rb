@@ -20,7 +20,7 @@ user_3 = User.create(name: "Nathan", description: "Ma chienne adore sortir mais 
 user_3.save!
 user_4 = User.create(name: "Sander", description: "Je suis nouveau sur Paris et j'aimerais faire de nouvelles rencontres pour moi et mon chien", age: 30, gender: "homme", orientation: "hétéro", email: "testu.exemple@test.com", password: "123456")
 user_4.save!
-user_5 = User.create(name: "Annika", description: "J'aimerais savoir qui sera le premier à trouver l'amour entre moi et mes deux chiens", age: 45, gender: "femme", orientation: "hétéro", email: "testm.exemple@test.com", password: "123456")
+user_5 = User.create(name: "Annika", description: "J'aimerais savoir qui sera le premier à trouver l'amour entre moi et ma chienne", age: 45, gender: "femme", orientation: "hétéro", email: "testm.exemple@test.com", password: "123456")
 user_5.save!
 user_6 = User.create(name: "Olivia", description: "On dit que le chien est le meilleur ami de l'homme...", age: 24, gender: "femme", orientation: "hétéro", email: "testi.exemple@test.com", password: "123456")
 user_6.save!
@@ -56,25 +56,20 @@ file = URI.open("https://www.oobaooba.fr/img/post/41.jpg")
 pet_5.photos.attach(io: file, filename: "animal")
 pet_5.save!
 
-pet_6 = Pet.create(name: "Leo", sexe: "male", race: "French bulldog", age: 3, description: "Luna n'est pas ma soeur...", user: user_5)
-file = URI.open("https://www.oobaooba.fr/img/post/41.jpg")
+pet_6 = Pet.create(name: "Max", sexe: "male", race: "Siberian husky", age: 6, description: "Je veux retourner en Sibérie", user: user_6)
+file = URI.open("https://jardinage.lemonde.fr/images/dossiers/2017-07/husky-1-105935.jpg")
 pet_6.photos.attach(io: file, filename: "animal")
 pet_6.save!
 
-pet_7 = Pet.create(name: "Max", sexe: "male", race: "Siberian husky", age: 6, description: "Je veux retourner en Sibérie", user: user_6)
-file = URI.open("https://jardinage.lemonde.fr/images/dossiers/2017-07/husky-1-105935.jpg")
+pet_7 = Pet.create(name: "Jack", sexe: "male", race: "Beagle", age: 5, description: "Quand le chien a la queue verticale c'est qu'il est en confiance", user: user_7)
+file = URI.open("https://www.zoomalia.com/blogz/2597/tout-savoir-sur-le-beagle.jpeg")
 pet_7.photos.attach(io: file, filename: "animal")
 pet_7.save!
 
-pet_8 = Pet.create(name: "Jack", sexe: "male", race: "Beagle", age: 5, description: "Quand le chien a la queue verticale c'est qu'il est en confiance", user: user_7)
-file = URI.open("https://www.zoomalia.com/blogz/2597/tout-savoir-sur-le-beagle.jpeg")
+pet_8 = Pet.create(name: "Newton", sexe: "male", race: "Australian shepherd", age: 4, description: "Quand une femme change d'homme elle change de coiffure", user: user_8)
+file = URI.open("https://www.illicoveto.com/wp-content/uploads/berger-australien.jpg")
 pet_8.photos.attach(io: file, filename: "animal")
 pet_8.save!
-
-pet_9 = Pet.create(name: "Newton", sexe: "male", race: "Australian shepherd", age: 4, description: "Quand une femme change d'homme elle change de coiffure", user: user_8)
-file = URI.open("https://www.illicoveto.com/wp-content/uploads/berger-australien.jpg")
-pet_9.photos.attach(io: file, filename: "animal")
-pet_9.save!
 
 puts "Created #{Pet.count} pets"
 
