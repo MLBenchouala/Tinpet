@@ -1,6 +1,7 @@
 <%= simple_form_for @user do |f| %>
   <%= f.input :name %>
   <%= f.input :age %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.input :gender %>
   <%= f.input :orientation %>
   <%= f.input :description %>
