@@ -4,7 +4,7 @@ Pet.destroy_all
 User.destroy_all
 
 puts 'Users creation...'
-user_1 = User.new(name: "Louis", walk: false, more: true, description: "Je suis en panne d'inspi donc je compte sur mon chien pour trouver la bonne", age: 22, gender: "homme", orientation: "hétéro", email: "teste.exemple@test.com", password: "123456")
+user_1 = User.new(name: "Louis", walk: false, more: true, description: "Je suis en panne d'inspi donc je compte sur mon chien pour trouver la bonne", age: 22, gender: "homme", orientation: "hétéro", email: "teste.exemple@test.com", password: "123456", address: "10 rue Gros")
 file = URI.open("https://upload.wikimedia.org/wikipedia/commons/5/5f/Louis_XIV_of_France.jpg")
 user_1.photos.attach(io: file, filename: "user")
 user_1.save!
