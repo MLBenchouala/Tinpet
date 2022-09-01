@@ -1,6 +1,5 @@
-<h2><%= @restaurant.name %></h2>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.rating %></p>
+<h2><%= @pet.name %></h2>
+
 <% if policy(@pet).edit? %>
   <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
 <% end %>
