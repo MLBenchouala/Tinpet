@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :pets
   resources :users
+
   resources :pets do
     resources :swipes, only: [:new, :create]
   end
