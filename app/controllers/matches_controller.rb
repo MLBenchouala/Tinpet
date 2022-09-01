@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   def index
-    @matches = current_user.matches
+    @matches = policy_scope(current_user.matches)
   end
 
   def show
