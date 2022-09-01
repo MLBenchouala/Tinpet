@@ -100,5 +100,10 @@ user_4_for_user_1_pet = Swipe.create(user: user_4, pet: user_1.pets.first, liked
 
 puts 'Matches creation...'
 match_user_1_with_user_2 = Match.create(user1: user_1, user2: user_2)
-
 match_user_1_with_user_4 = Match.create(user1: user_4, user2: user_1)
+
+MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_1_for_user_4_pet)
+MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_4_for_user_1_pet)
+
+Match.create!(first_user: user_1, second_user: user_2)
+puts "Chatroom for #{user_1.full_name} & #{user_2.full_name} created"
