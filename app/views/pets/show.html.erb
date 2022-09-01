@@ -10,6 +10,9 @@
         <h3 class="mt-4">Description</h3>
         <p><%= @pet.description %></p>
       </div>
+        <% @pet.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
       <% if policy(@pet).edit? %>
         <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
       <% end %>
@@ -17,4 +20,3 @@
     </div>
   </div>
 </div>
-
