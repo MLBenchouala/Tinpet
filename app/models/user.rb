@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :matches,
             ->(user) {
               unscope(where: :user_id)
-              .where("first_user_id = :user_id OR second_user_id = :user_id", user_id: user.id)
+              .where("user1_id = :user_id OR user2_id = :user_id", user_id: user.id)
             },
             class_name: 'Match',
             dependent: :destroy
