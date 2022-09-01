@@ -1,8 +1,17 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[show edit]
 
-  before_action :set_user, only: %i[show]
   def show
     authorize @user
+  end
+
+  def edit
+    authorize @user
+  end
+
+  def update
+    User.find(params[:id]).update(user_params)
+    skip_authorization
   end
 
   private
@@ -12,6 +21,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :description, :genre, :age)
+    params.require(:user).permit(:name, :description, :genre, :age, photos: [])
   end
 end

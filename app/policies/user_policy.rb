@@ -8,7 +8,7 @@ class UserPolicy < ApplicationPolicy
 
 
   def update?
-    record.user == user
+    record == user
   end
 
   def show?
@@ -16,11 +16,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def delete?
-    record.user == user
+    record == user
   end
 
   def edit?
-    record.user == user
+    record == user
   end
 
   def new?
