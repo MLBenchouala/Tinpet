@@ -14,12 +14,16 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: %i[name gender])
   end
 
-  def after_sign_in_path_for(_resource)
-    user_path(current_user) # your path
-  end
+  # def after_sign_in_path_for(_resource)
+  #   user_path(current_user) # your path
+  # end
 
   def after_sign_up_path_for(_resource)
     user_path(current_user) # your path
+  end
+
+  def after_sign_in_path_for(resource)
+    pets_path
   end
 
   private
