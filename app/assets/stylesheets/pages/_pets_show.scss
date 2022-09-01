@@ -1,4 +1,20 @@
 .dog_image {
-  border-radius: 30px;
-  box-shadow: 5px 5px 5px rgb(173, 173, 173);
+  width: 100%;
+}
+
+.pet_name {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  color: #FF6666;
+}
+
+.pet_user_border {
+  border: 2px solid #FF3767;
+}
+
+.pet_user_size {
+  font-size: 12px;
 }

@@ -1,22 +1,30 @@
 
-<div class="container my-5">
-  <div class="d-flex">
-    <div class="w-50">
-      <div class="info">
-        <h2 class="mt-5">Salut je m'appelle <strong><%= @pet.name %></strong></h2>
-        <p class="mb-1"><i class="fa-solid fa-cake-candles pe-2"></i>J'ai <%= pluralize(@pet.age, "an") %></p>
-        <p class="mb-1"><em><%= @pet.race %></em></p>
-        <h3 class="mt-4">Description</h3>
-        <p><%= @pet.description %></p>
-        <p><%= @pet.sexe %></p>
+<div class="d-flex">
+  <div>
+    <%= cl_image_tag @pet.photos.first.key, class: "dog_image", style: "width: 100%; height: 429.83px; object-fit:cover;
+    ", alt: "Responsive image" %>
+    <div class="m-5">
+      <h2 class="pet_name"><strong><%= @pet.name %></strong></h2>
+      <p><i class="fa-solid fa-cake-candles pe-2"></i><%= pluralize(@pet.age, "an") %></p>
+      <p><em><%= @pet.race %></em></p>
+      <p><%= @pet.description %></p>
+      <div class="d-flex align-items-center">
+        <%= cl_image_tag @pet.user.photos.first.key, class: "avatar pet_user_border me-2" %>
+        <div>
+          <div>
+            Fille d'<strong><%= @pet.user.name %></strong>
+          </div>
+          <div class="pet_user_size">
+            <%= @pet.user.age %> ans
+          </div>
+        </div>
       </div>
-        <% @pet.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
+    </div>
+
       <% if policy(@pet).edit? %>
-        <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
+      <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
       <% end %>
       <%= button_to "Destroy this pet", @pet, method: :delete if policy(@pet).destroy? %>
-    </div>
+    <div>
   </div>
 </div>

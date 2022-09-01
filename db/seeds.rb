@@ -67,7 +67,7 @@ file = URI.open("https://geo.img.pmdstatic.net/fit/https.3A.2F.2Fi.2Epmdstatic.2
 pet_4.photos.attach(io: file, filename: "animal")
 pet_4.save!
 
-pet_5 = Pet.new(name: "Luna", sexe: "femelle", race: "Bulldog français", age: 3, description: "Salut ! Je suis la soeur de Leo et si je sais pas comment expliquer à Annika qu'elle perd son temps", user: user_5)
+pet_5 = Pet.new(name: "Luna", sexe: "femelle", race: "Bulldog français", age: 3, description: "Salut ! Je suis la plus française des petites chiennes", user: user_5)
 file = URI.open("https://www.oobaooba.fr/img/post/41.jpg")
 pet_5.photos.attach(io: file, filename: "animal")
 pet_5.save!
@@ -105,5 +105,3 @@ match_user_1_with_user_4 = Match.create(user1: user_4, user2: user_1)
 MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_1_for_user_4_pet)
 MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_4_for_user_1_pet)
 
-Match.create!(first_user: user_1, second_user: user_2)
-puts "Chatroom for #{user_1.full_name} & #{user_2.full_name} created"
