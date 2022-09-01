@@ -1,19 +1,19 @@
 import { Controller } from "@hotwired/stimulus"
-import { createConsumer } from "@rails/actioncable"
+// import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
   // these are the values we will retrieve from the DOM
   // The userId will be the value we will use to know wether
   // the user is a recipient of the message or the sender
   static values = {
-    chatroomId: Number,
+    matchId: Number,
     userId: Number
   }
   static targets = [ 'messages' ]
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
-      { channel: 'ChatroomChannel', id: this.chatroomIdValue },
+      { channel: 'MatchChannel', id: this.matchIdValue },
       { received: this.#processMessage.bind(this) }
     )
     this.#scrollToBottom()

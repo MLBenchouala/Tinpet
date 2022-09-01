@@ -47,17 +47,17 @@ user_8.save!
 puts "Created #{User.count} users"
 
 puts 'Pets creation...'
-pet_1 = Pet.new(name: "Rex", sexe: "mâle", race: "Labrador", age: 5, description: "Salut je m'appelle Rex et je crois que Louis a vraiment besoin d'aide", user: user_1)
+pet_1 = Pet.new(name: "Rex", sexe: "male", race: "Labrador", age: 5, description: "Salut je m'appelle Rex et je crois que Louis a vraiment besoin d'aide", user: user_1)
 file = URI.open("https://static.wamiz.com/images/animaux/chiens/large/labrador-retriever.jpg")
 pet_1.photos.attach(io: file, filename: "animal")
 pet_1.save!
 
-pet_2 = Pet.new(name: "Rocky", sexe: "mâle", race: "Golden retriever", age: 4, description: "Jade dit à tout le monde que je veux faire des rencontres mais en vrai elle est juste dépressive", user: user_2)
+pet_2 = Pet.new(name: "Rocky", sexe: "male", race: "Golden retriever", age: 4, description: "Jade dit à tout le monde que je veux faire des rencontres mais en vrai elle est juste dépressive", user: user_2)
 file = URI.open("https://i.f1g.fr/media/cms/orig/2021/08/18/94886ffaf381c3cfd9393372c7a820cefb8b3e2b8f56357044d17624312d02b2.jpg")
 pet_2.photos.attach(io: file, filename: "animal")
 pet_2.save!
 
-pet_3 = Pet.new(name: "Snow", sexe: "mâle", race: "Berger allemand", age: 2, description: "Visiblement Nathan se fait chier avec moi", user: user_3)
+pet_3 = Pet.new(name: "Snow", sexe: "male", race: "Berger allemand", age: 2, description: "Visiblement Nathan se fait chier avec moi", user: user_3)
 file = URI.open("https://www.zooplus.fr/magazine/wp-content/uploads/2018/09/deutscher-sch%C3%A4ferhund-768x511.jpg")
 pet_3.photos.attach(io: file, filename: "animal")
 pet_3.save!
@@ -72,17 +72,17 @@ file = URI.open("https://www.oobaooba.fr/img/post/41.jpg")
 pet_5.photos.attach(io: file, filename: "animal")
 pet_5.save!
 
-pet_6 = Pet.new(name: "Max", sexe: "mâle", race: "Husky de Sibérie", age: 6, description: "Je veux retourner en Sibérie", user: user_6)
+pet_6 = Pet.new(name: "Max", sexe: "male", race: "Husky de Sibérie", age: 6, description: "Je veux retourner en Sibérie", user: user_6)
 file = URI.open("https://jardinage.lemonde.fr/images/dossiers/2017-07/husky-1-105935.jpg")
 pet_6.photos.attach(io: file, filename: "animal")
 pet_6.save!
 
-pet_7 = Pet.new(name: "Jack", sexe: "mâle", race: "Beagle", age: 5, description: "Quand le chien a la queue verticale c'est qu'il est en confiance", user: user_7)
+pet_7 = Pet.new(name: "Jack", sexe: "male", race: "Beagle", age: 5, description: "Quand le chien a la queue verticale c'est qu'il est en confiance", user: user_7)
 file = URI.open("https://www.zoomalia.com/blogz/2597/tout-savoir-sur-le-beagle.jpeg")
 pet_7.photos.attach(io: file, filename: "animal")
 pet_7.save!
 
-pet_8 = Pet.new(name: "Newton", sexe: "mâle", race: "Berger australien", age: 4, description: "Quand une femme change d'homme elle change de coiffure", user: user_8)
+pet_8 = Pet.new(name: "Newton", sexe: "male", race: "Berger australien", age: 4, description: "Quand une femme change d'homme elle change de coiffure", user: user_8)
 file = URI.open("https://www.illicoveto.com/wp-content/uploads/berger-australien.jpg")
 pet_8.photos.attach(io: file, filename: "animal")
 pet_8.save!
@@ -100,9 +100,8 @@ user_4_for_user_1_pet = Swipe.create(user: user_4, pet: user_1.pets.first, liked
 
 puts 'Matches creation...'
 match_user_1_with_user_2 = Match.create(user1: user_1, user2: user_2)
-MatchedSwipe.create(match: match_user_1_with_user_2, swipe: user_1_for_user_2_pet)
-MatchedSwipe.create(match: match_user_1_with_user_2, swipe: user_2_for_user_1_pet)
-
 match_user_1_with_user_4 = Match.create(user1: user_4, user2: user_1)
+
 MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_1_for_user_4_pet)
 MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_4_for_user_1_pet)
+
