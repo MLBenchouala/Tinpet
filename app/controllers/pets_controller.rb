@@ -7,7 +7,6 @@ class PetsController < ApplicationController
     @users = User.all
     if @search.present?
 
-      @user_name = @search["user_name"]
       @user_age = @search["user_age"]
       @user_address = @search["user_address"]
       @user_orientation = @search["user_orientation"]
@@ -15,15 +14,18 @@ class PetsController < ApplicationController
       @user_walk = @search["user_walk"]
       @user_more = @search["user_more"]
 
-      @users = User.where("name ILIKE ?", "%#{@user_name}%") if @user_name != ''
-      @users = @users.where(age: @user_age) if @user_age != ''
+      @users = User.where(age: @user_age) if @user_age != ''
       @users = @users.where("address ILIKE ?", "%#{@user_address}%") if @user_address != ''
       @users = @users.where("orientation ILIKE ?", "%#{@user_orientation}%") if @user_orientation != ''
       @users = @users.where("gender ILIKE ?", "%#{@user_gender}%") if @user_gender != ''
-      @users = @users.where(walk: true) if @user_walk == '1'
-      @users = @users.where(walk: false) if @user_walk == '0'
-      @users = @users.where(more: true) if @user_more == '1'
-      @users = @users.where(more: false) if @user_more == '0'
+      if @user_walk == '0' && @user_more == '0'
+        @users
+      else
+        @users = @users.where(walk: true) if @user_walk == '1'
+        @users = @users.where(walk: false) if @user_walk == '0'
+        @users = @users.where(more: true) if @user_more == '1'
+        @users = @users.where(more: false) if @user_more == '0'
+      end
 
       @pets = @pets.where(user: @users)
 
