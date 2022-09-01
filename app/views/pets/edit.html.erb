@@ -6,6 +6,8 @@
 <%= f.input :description %>
 <%= f.input :sexe, collection: %w[male female] %>
 <%= f.submit %>
+
 <%# Ajouter le form pour resave les modifs sur le pet et checker les droits pundit %>
 <%= link_to 'list all pets', pets_path %>
+
 <% end %>
