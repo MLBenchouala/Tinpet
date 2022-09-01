@@ -2,14 +2,17 @@
 <div class="container my-5">
   <div class="d-flex">
     <div class="w-50">
-      <%= cl_image_tag @pet.photos.first.key, class: "dog_image", style: "width: 100%;", alt: @pet.name %>
       <div class="info">
         <h2 class="mt-5">Salut je m'appelle <strong><%= @pet.name %></strong></h2>
         <p class="mb-1"><i class="fa-solid fa-cake-candles pe-2"></i>J'ai <%= pluralize(@pet.age, "an") %></p>
         <p class="mb-1"><em><%= @pet.race %></em></p>
         <h3 class="mt-4">Description</h3>
         <p><%= @pet.description %></p>
+        <p><%= @pet.sexe %></p>
       </div>
+        <% @pet.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
       <% if policy(@pet).edit? %>
         <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
       <% end %>
@@ -17,4 +20,3 @@
     </div>
   </div>
 </div>
-
