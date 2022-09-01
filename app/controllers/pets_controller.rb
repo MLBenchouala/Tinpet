@@ -19,6 +19,7 @@ class PetsController < ApplicationController
   end
 
   def update
+    @pet.update(pet_params)
     authorize @pet
   end
 

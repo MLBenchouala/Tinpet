@@ -8,8 +8,8 @@
   <%= f.input :walk %>
   <%= f.input :more %>
   <%= f.submit %>
-  <% @user.photos.each do |photo| %>
+<% end %>
+<% @user.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
 <% end %>
 <%= link_to 'list all pets', pets_path %>
