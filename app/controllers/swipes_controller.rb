@@ -7,14 +7,15 @@ class SwipesController < ApplicationController
   end
 
   def create
-    # raise
     @pet = Pet.find(params[:pet_id])
     @swipe = Swipe.new(liked: params[:liked])
+
     @swipe.user = current_user
     @swipe.pet = @pet
-    authorize @swipe
+
     if @swipe.save
       mirors_swipes = Swipe.where(user: @pet.user, pet: current_user.pets)
+
       unless mirors_swipes.empty?
         @match = Match.new(user1: current_user, user2: @pet.user  )
         @match.save
@@ -26,7 +27,9 @@ class SwipesController < ApplicationController
     else
       flash[:alert] = "something went wrong"
     end
-    redirect_to pets_path
+
+    authorize @swipe
+    render json: { liked: params[:liked] }
   end
 
   private

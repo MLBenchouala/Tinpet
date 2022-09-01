@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import MatchSubscriptionController from "./match_subscription_controller"
 application.register("match-subscription", MatchSubscriptionController)
+
+import SwipePetsController from "./swipe_pets_controller"
+application.register("swipe-pets", SwipePetsController)
