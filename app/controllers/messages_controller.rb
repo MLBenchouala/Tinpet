@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user = current_user
     @message.match = match
+    authorize @message
     if @message.save
       # We will use actionCable to broadcast the message html string later
       MatchChannel.broadcast_to(

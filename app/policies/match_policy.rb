@@ -5,10 +5,16 @@ class MatchPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def index?
     true
   end
+
   def matching?
+    true
+  end
+
+  def show?
     true
   end
 end
