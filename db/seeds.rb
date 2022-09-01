@@ -95,13 +95,12 @@ Swipe.create(user: user_1, pet: user_3.pets.first, liked: false)
 user_1_for_user_4_pet = Swipe.create(user: user_1, pet: user_4.pets.first, liked: true)
 Swipe.create(user: user_1, pet: user_5.pets.first, liked: false)
 
-user_2_for_user_1_pet = Swipe.create(user: user_2, pet: user_1.pets.first, liked: true)
+# user_2_for_user_1_pet = Swipe.create(user: user_2, pet: user_1.pets.first, liked: true)
 user_4_for_user_1_pet = Swipe.create(user: user_4, pet: user_1.pets.first, liked: true)
 
 puts 'Matches creation...'
-match_user_1_with_user_2 = Match.create(user1: user_1, user2: user_2)
-match_user_1_with_user_4 = Match.create(user1: user_4, user2: user_1)
+# match_user_1_with_user_2 = Match.create(user1: user_1, user2: user_2)
+# match_user_1_with_user_4 = Match.create(user1: user_4, user2: user_1)
 
-MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_1_for_user_4_pet)
-MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_4_for_user_1_pet)
-
+# MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_1_for_user_4_pet)
+# MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_4_for_user_1_pet)

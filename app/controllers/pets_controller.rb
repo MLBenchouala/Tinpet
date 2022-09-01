@@ -3,6 +3,7 @@ class PetsController < ApplicationController
 
   def index
     @pets = policy_scope(Pet).where.not(user: current_user)
+    @pets = @pets.where.not(id: current_user.swipes.pluck(:pet_id))
     @search = params["search"]
     @users = User.all
     if @search.present?
@@ -18,6 +19,8 @@ class PetsController < ApplicationController
       @users = @users.where("address ILIKE ?", "%#{@user_address}%") if @user_address != ''
       @users = @users.where("orientation ILIKE ?", "%#{@user_orientation}%") if @user_orientation != ''
       @users = @users.where("gender ILIKE ?", "%#{@user_gender}%") if @user_gender != ''
+
+
       if @user_walk == '0' && @user_more == '0'
         @users
       else

@@ -20,21 +20,22 @@ export default class extends Controller {
       this._createButtonListener(true, e)
     });
 
-    this.likeEvent = new Event('liked');
-    this.dislikeEvent = new Event('disliked');
-    this.currentIdValue = this.idsValue[0]
+    // this.likeEvent = new Event('liked');
+    // this.dislikeEvent = new Event('disliked');
+    this._updateCurentId()
   }
 
-  liked(evt) {
+  liked(id) {
+    this._updateCurentId()
 
-    console.log(this.currentIdValue)
+    console.log('hello ', this.currentId, id)
 
     const options = {
       method: "POST",
       headers: { "Accept": "application/json", "X-CSRF-TOKEN": this.csrf }
     }
 
-    fetch(`/pets/${this.currentIdValue}/swipes?liked=true`, options)
+    fetch(`/pets/${this.currentId}/swipes?liked=true`, options)
       .then(response => response.json())
       .then(data => console.log(data))
 
@@ -42,14 +43,15 @@ export default class extends Controller {
   }
 
   disliked(elementId) {
+    this._updateCurentId()
 
-    console.log(this.currentIdValue)
+    console.log('bye',this.currentId)
     const options = {
       method: "POST",
       headers: { "Accept": "application/json", "X-CSRF-TOKEN": this.csrf }
     }
 
-    fetch(`/pets/${this.currentIdValue}/swipes?liked=false`, options)
+    fetch(`/pets/${this.currentId}/swipes?liked=false`, options)
       .then(response => response.json())
       .then(data => console.log(data))
 
@@ -58,7 +60,7 @@ export default class extends Controller {
   }
 
   _updateCurentId() {
-    this.currentIdValue = this.cardTargets
+    this.currentId = this.cardTargets
                               .filter((item) => !item.classList.contains('removed'))[0].dataset.id
   }
 
@@ -106,13 +108,13 @@ export default class extends Controller {
 
       if (!keep && event.additionalEvent === 'panright') {
         this.liked(event.target.dataset.id)
-        console.log('like')
+        console.log('like', event.target.dataset.id)
       } else if (!keep && event.additionalEvent === 'panleft') {
         this.disliked(event.target.dataset.id)
       }
 
       event.target.classList.toggle('removed', !keep);
-
+      this._updateCurentId()
       if (keep) {
         event.target.style.transform = '';
       } else {
@@ -140,6 +142,7 @@ export default class extends Controller {
 
     card.style.transform = `translate(${minus}${moveOutWidth}px, -100px) rotate(${minus}30deg)`;
     card.classList.add('removed');
+    this._updateCurentId()
 
     this._initCards();
     event.preventDefault();
