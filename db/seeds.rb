@@ -2,8 +2,6 @@ Match.destroy_all
 Swipe.destroy_all
 Pet.destroy_all
 User.destroy_all
-m1 = Match.new(user1_id: 5, user2_id: 2)
-m2 = Match.new(user1_id: 2, user2_id: 5)
 
 puts 'Users creation...'
 user_1 = User.new(name: "Louis", walk: false, more: true, description: "Je suis en panne d'inspi donc je compte sur mon chien pour trouver la bonne", age: 22, gender: "homme", orientation: "hétéro", email: "teste.exemple@test.com", password: "123456", address: "10 rue Gros")
@@ -97,18 +95,10 @@ Swipe.create(user: user_1, pet: user_3.pets.first, liked: false)
 user_1_for_user_4_pet = Swipe.create(user: user_1, pet: user_4.pets.first, liked: true)
 Swipe.create(user: user_1, pet: user_5.pets.first, liked: false)
 
-#user_2_for_user_1_pet = Swipe.create(user: user_2, pet: user_1.pets.first, liked: true)
-#user_4_for_user_1_pet = Swipe.create(user: user_4, pet: user_1.pets.first, liked: true)
+user_2_for_user_1_pet = Swipe.create(user: user_2, pet: user_1.pets.first, liked: true)
+user_4_for_user_1_pet = Swipe.create(user: user_4, pet: user_1.pets.first, liked: true)
 
 puts 'Matches creation...'
-#match_user_1_with_user_2 = Match.create(user1: user_1, user2: user_2)
-#MatchedSwipe.create(match: match_user_1_with_user_2, swipe: user_1_for_user_2_pet)
-#MatchedSwipe.create(match: match_user_1_with_user_2, swipe: user_2_for_user_1_pet)
-
+match_user_1_with_user_2 = Match.create(user1: user_1, user2: user_2)
 
 match_user_1_with_user_4 = Match.create(user1: user_4, user2: user_1)
-MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_1_for_user_4_pet)
-MatchedSwipe.create(match: match_user_1_with_user_4, swipe: user_4_for_user_1_pet)
-
-Chatroom.create!(first_user: user_1, second_user: user_2)
-
