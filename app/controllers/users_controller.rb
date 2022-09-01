@@ -1,15 +1,26 @@
 class UsersController < ApplicationController
-  def index
-    @users = policy_scope(User)
-  end
+  before_action :set_user, only: %i[show edit]
 
   def show
-    @user = User.find(params[:id])
     authorize @user
   end
 
   def edit
-    @user = User.find(params[:id])
     authorize @user
+  end
+
+  def update
+    User.find(params[:id]).update(user_params)
+    skip_authorization
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :description, :genre, :age, photos: [])
   end
 end

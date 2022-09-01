@@ -7,3 +7,5 @@
 <% if policy(@user).edit? %>
   <%= link_to "Edit my profile", edit_user_path(@user) %>
 <% end %>
+
+<%= link_to 'your pet', pet_path %>
