@@ -1,7 +1,11 @@
-<ul>
-  <% @matches.each do |match| %>
-    <li><%= match.user1_id %></li>
-    <li><%= match.user2_id %></li>
-    <p>---------------------------</p>
+
+<% @matches.each do |match| %>
+  <%= link_to match_path(match) do %>
+    <div class="card mb-1">
+      <div class="card-body">
+        <%= match.interlocutor_of(current_user).full_name %>
+      </div>
+    </div>
   <% end %>
-</ul>
+<% end %>
+

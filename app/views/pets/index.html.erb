@@ -1,7 +1,9 @@
 <ul>
   <% @pets.each do |pet| %>
+
     <li><%= pet.name %></li>
     <%= link_to "Like this pet", pet_swipes_path(pet , liked:  true),  data: { turbo_method: :post }%>
     <%= link_to "dislike this pet", pet_swipes_path(pet, liked: false), data: { turbo_method: :post }%>
+
   <% end %>
 </ul>

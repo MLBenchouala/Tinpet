@@ -11,6 +11,7 @@ class Match < ApplicationRecord
   #   removed: 3
   # }
 
+
   validate :only_on_match_per_pair
 
   def only_on_match_per_pair
@@ -20,5 +21,6 @@ class Match < ApplicationRecord
     if user_ids.in? matches_user_ids
       errors.add("a match already exists")
     end
+
   end
 end

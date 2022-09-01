@@ -1,0 +1,13 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :gender %>
+  <%= f.input :orientation %>
+  <%= f.input :description %>
+  <%= f.input :walk %>
+  <%= f.input :more %>
+  <%= f.submit %>
+  <%= cl_image_tag @user.photos, height: 300, width: 400, crop: :fill %>
+<% end %>
+<%= link_to 'list all pets', pets_path %>
