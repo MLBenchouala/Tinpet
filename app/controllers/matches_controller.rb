@@ -1,10 +1,6 @@
 class MatchesController < ApplicationController
   def index
-    @matches = current_user.matches
-  end
+    @matches = policy_scope(Match)
 
-  def show
-    @match = Match.find(params[:id])
-    @message = Message.new
   end
 end

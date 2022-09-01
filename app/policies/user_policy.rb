@@ -6,11 +6,25 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+
+  def update?
+    record.user == user
+  end
+
   def show?
-    true
+    record.id == user.id
+  end
+
+  def delete?
+    record.user == user
   end
 
   def edit?
-    record == user
+    record.user == user
+  end
+
+  def new?
+    true
+
   end
 end

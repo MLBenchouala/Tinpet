@@ -10,7 +10,17 @@ class Match < ApplicationRecord
   #   declined: 2,
   #   removed: 3
   # }
-  def interlocutor_of(user)
-    user == first_user ? second_user : first_user
+
+
+  validate :only_on_match_per_pair
+
+  def only_on_match_per_pair
+    user_ids = [self.user1.id, self.user2.id].sort
+    matches_user_ids = Match.pluck(user1_id, user2_id).map(&:sort)
+    # raise
+    if user_ids.in? matches_user_ids
+      errors.add("a match already exists")
+    end
+
   end
 end
