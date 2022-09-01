@@ -1,0 +1,24 @@
+<h1>Filters for pets</h1>
+
+  <%= simple_form_for :search, url: pets_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :age, collection: 0..30, input_html: {value: ""} %>
+  <%= f.input :race, input_html: {value: ""} %>
+  <%= f.input :sexe, collection: ['male', 'femelle'], input_html: {value: ""} %>
+
+<h1>Filters for users</h1>
+<%#
+<div class="slidecontainer">
+  <input type="range" min="18" max="100" value="50" class="slider" id="myRange">
+</div> %>
+
+  <%=  f.input :user_age, collection: 18..90, input_html: {value: ""} %>
+  <%= f.input :user_address, input_html: {value: ""} %>
+  <%= f.input :user_orientation, collection: ['hétero', 'homo'], input_html: {value: ""} %>
+  <%= f.input :user_gender, collection: ['homme', 'femme'], input_html: {value: ""} %>
+  <h3>For a walk ?</h3>
+  <%= f.check_box :user_walk %>
+  <h3>For more ?</h3>
+  <%= f.check_box :user_more%>
+  <p><%= f.submit "Search", class: "btn btn-primary" %> </p>
+
+  <% end %>

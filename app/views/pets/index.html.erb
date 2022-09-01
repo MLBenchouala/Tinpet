@@ -1,9 +1,29 @@
-<ul>
-  <% @pets.each do |pet| %>
+<div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>">
+  <div class="tinder--cards">
+    <% @pets.each do |pet| %>
+      <div class="tinder--card" data-swipe-pets-target="card" data-id="<%= pet.id %>">
+        <div class="tinder--status">
+          <i class="fa-solid fa-xmark"></i>
+          <i class="fa fa-heart"></i>
+        </div>
+        <%= cl_image_tag pet.photos.first.key %>
+        <h3><%= pet.name %></h3>
+        <p><%= pet.race %></p>
+      </div>
+    <% end %>
+  </div>
 
-    <li><%= pet.name %></li>
-    <%= link_to "Like this pet", pet_swipes_path(pet , liked:  true),  data: { turbo_method: :post }%>
-    <%= link_to "dislike this pet", pet_swipes_path(pet, liked: false), data: { turbo_method: :post }%>
 
-  <% end %>
-</ul>
+  <div class="tinder--buttons">
+    <button id="nope" data-swipe-pets-target="nopeBtn" data-action="click->swipe-pets#disliked">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button id="love" data-swipe-pets-target="likeBtn" data-action="click->swipe-pets#liked">
+      <i class="fa fa-heart"></i>
+    </button>
+  </div>
+</div>
+
+
+<%= link_to 'filtres', pets_filtres_path%>
+
