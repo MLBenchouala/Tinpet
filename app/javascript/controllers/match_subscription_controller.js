@@ -9,7 +9,7 @@ export default class extends Controller {
     matchId: Number,
     userId: Number
   }
-  static targets = [ 'messages' ]
+  static targets = [ 'messages', 'form' ]
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
@@ -24,7 +24,7 @@ export default class extends Controller {
   }
 
   resetForm(event) {
-    event.target.reset()
+    this.formTarget.reset()
   }
 
   #processMessage(data) {
@@ -42,6 +42,7 @@ export default class extends Controller {
 
     this.#insertMessage(msgElement)
     this.#scrollToBottom()
+    this.resetForm()
   }
   #buildHTML(string) {
     const tmpDiv = document.createElement('div')

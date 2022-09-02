@@ -17,7 +17,7 @@
     object-position: center;
     border: 1px rgb(200, 200, 200) solid;
     border-radius: 50%;
-    margin: 0 4px;
+    margin: 0 15px 0 4px;
   }
   .message-content {
     display: flex;
@@ -33,10 +33,16 @@
 
 // This is what displays the message on the right
 .message.sender {
+  margin: 0 4px 0 15px;
   .message-infos {
     flex-direction: row-reverse;
   }
   .message-content {
     flex-direction: row-reverse;
+    margin: 0 -12px 0px -10px;
+  }
+
+  img {
+    margin: 0 4px 0 15px;
   }
 }
