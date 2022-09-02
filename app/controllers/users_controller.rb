@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit]
 
   def show
-    authorize @user
+    skip_authorization
+
   end
 
   def edit

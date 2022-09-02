@@ -43,3 +43,33 @@
 .msg {
   margin-left: 10px;
 }
+
+
+.card {
+  border-radius: 10px 10px 0px 0px;
+}
+
+.chatbox-wrapper {
+  margin: 20px;
+  .form-control {
+    border-radius: 0px 0px 10px 10px;
+    background-color: white;
+    padding: 0.800rem 0.95rem;
+
+  }
+}
+
+.message-content p {
+  background-color: #FFDCDC;
+  border: none !important;
+  flex-grow: 1;
+}
+
+.message-content {
+  margin-top: 10px;
+
+}
+
+.card-img{
+  width: 100%;
+}
