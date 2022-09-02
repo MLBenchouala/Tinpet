@@ -18,7 +18,7 @@ class SwipesController < ApplicationController
 
       unless mirors_swipes.empty?
         @match = Match.new(user1: current_user, user2: @pet.user  )
-        @match.save
+        @match.save!
         # [*mirors_swipes, @swipe].each do |swipe|
         #   MatchedSwipe.create(match: @match, swipe: swipe)
         # end
