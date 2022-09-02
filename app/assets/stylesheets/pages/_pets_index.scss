@@ -1,6 +1,6 @@
 .tinder {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 80px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -97,6 +97,8 @@
 
 .tinder--buttons {
   flex: 0 0 100px;
+  display: flex;
+  justify-content: space-around;
   text-align: center;
   padding-top: 20px;
 }
@@ -105,6 +107,7 @@
   border-radius: 50%;
   line-height: 60px;
   width: 60px;
+  height: 60px;
   border: 0;
   background: #FFFFFF;
   display: inline-block;
