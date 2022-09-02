@@ -1,11 +1,10 @@
 <% @matches.each do |match| %>
   <%= link_to match_path(match), class: "text"  do %>
-    <div class="card-product mb-1">
+    <div class="card-product mb-1 crs">
       <%= cl_image_tag match.interlocutor_of(current_user).photos.first.key, class: "avatar"%>
-      <div class="card-product-info">
-       <h2> <%= match.interlocutor_of(current_user).name %> </h2>
+      <div class="card-product-info k ">
+       <h2 class='tt'> <%= match.interlocutor_of(current_user).name %> </h2>
         <% if Message.find_by(user: match.interlocutor_of(current_user), match: match) %>
-        <p class="msg"> <%= Message.where(user: match.interlocutor_of(current_user), match: match).last.content %> </p>
         <% end %>
       </div>
     </div>
