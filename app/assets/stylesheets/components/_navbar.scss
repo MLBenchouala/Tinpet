@@ -7,6 +7,67 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-chat img {
+  width: 50px;
+  position: absolute;
+  right: 288px;
+  top: 10px;
+}
+
+.navbar-chat-text {
   width: 40px;
+  position: absolute;
+  right: 293px;
+  top: 42px;
+  img {
+    width: 100%;
+  }
+}
+
+.navbar-swipe img {
+  width: 50px;
+  position: absolute;
+  right: 55px;
+  top: 10px;
+}
+
+.navbar-swipe-text {
+  width: 50px;
+  position: absolute;
+  right: 54px;
+  top: 44px;
+  img {
+    width: 100%;
+  }
+}
+
+.navbar-tinpets {
+  background: #FF6666;
+  box-shadow: 0px -6px 34px rgba(255, 41, 41, 0.25);
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+
+}
+
+.circle-nav {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #FF6666;
+  top: -48px;
+  right: calc(50% - 50px);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar_navbar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid white;
 }
