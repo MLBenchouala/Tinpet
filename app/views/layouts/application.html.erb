@@ -18,6 +18,8 @@
 
     <%= render "shared/flashes" %>
     <%= yield %>
-    <%= render "shared/navbar" %>
+    <% if @hide_nav != true %>
+      <%= render "shared/navbar" %>
+    <% end %>
   </body>
 </html>
