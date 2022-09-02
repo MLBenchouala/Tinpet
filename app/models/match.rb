@@ -21,7 +21,6 @@ class Match < ApplicationRecord
     if user_ids.in? matches_user_ids
       errors.add(:user1_id, "a match already exists")
     end
-
   end
 
   def interlocutor_of(user)

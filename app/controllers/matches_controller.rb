@@ -7,6 +7,5 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @message = Message.new
     authorize @match
-
   end
 end
