@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-// import { createConsumer } from "@rails/actioncable"
+import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
   // these are the values we will retrieve from the DOM
