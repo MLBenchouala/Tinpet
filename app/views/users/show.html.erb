@@ -6,18 +6,30 @@
     ", alt: "Responsive image" %>
     <div class="m-5">
       <h2 class="pet_name"><strong><%= @user.name %></strong></h2>
+      <% if policy(@user).edit? %>
+        <%# <div class="d-flex"> %>
+          <i class="fa-solid fa-pen"></i>
+        <%# </div> %>
+      <% end %>
       <p><i class="fa-solid fa-cake-candles pe-2"></i><%= pluralize(@user.age, "an") %></p>
       <p><%= @user.description %></p>
       <div class="d-flex align-items-center">
+
+        <%= link_to pet_path(@user.pets.first) do %>
+          <%= cl_image_tag @user.pets.first.photos.first.key, class: "avatar_show pet_user_border me-2" %>
+        <% end %>
           <%= link_to pet_path(@user.pets.first) do %>
             <%= cl_image_tag @user.pets.first.photos.first.key, class: "avatar_show pet_user_border me-2" %>
           <% end %>
+
         <div>
           <div>
             <strong><%= @user.pets.first.name %></strong>
           </div>
           <div class="pet_user_size">
-            <%= @user.pets.first.age %> ans
+
+            <%= pluralize(@user.pets.first.age, "an") %>
+
           </div>
         </div>
 
