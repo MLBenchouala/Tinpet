@@ -1,5 +1,17 @@
 
+.styledborder {
+  border: 1px;
+  border-style: groove;
+}
+
+.infospet {
+  display: flex;
+  color: blue;
+  justify-content: space-around;
+
+
 .cul {
   margin-block: 260px;
   color: #FF6666;
+
 }

@@ -1,14 +1,26 @@
+<button class="btn btn-danger"><%= link_to "filters", pets_filtres_path %></button>
+
 <div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>">
   <div class="tinder--cards">
     <% @pets.each do |pet| %>
-      <div class="tinder--card" data-swipe-pets-target="card" data-id="<%= pet.id %>">
+      <div class="tinder--card styledborder" data-swipe-pets-target="card" data-id="<%= pet.id %>">
         <div class="tinder--status">
           <i class="fa-solid fa-xmark"></i>
           <i class="fa fa-heart"></i>
         </div>
         <%= cl_image_tag pet.photos.first.key %>
         <h3><%= pet.name %></h3>
-        <p><%= pet.race %></p>
+        <p class="tinder--card-subtitle"><%= pet.race %> | <%= pet.sexe.capitalize %></p>
+
+        <p class="tinder--card-description"><%= pet.description %></p>
+
+        <div class="tinder--card-user">
+          <%= cl_image_tag pet.user.photos.first.key %>
+          <div class="user-infos">
+            <p class="name"><%= pet.user.name %></p>
+            <p class="infos">TODO Ville | <%= pet.user.age %></p>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
