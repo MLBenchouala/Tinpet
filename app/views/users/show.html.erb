@@ -1,11 +1,29 @@
-<h2><%= @user.name %></h2>
-
-<% @user.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-
-<% if policy(@user).edit? %>
-  <%= link_to "Edit my profile", edit_user_path(@user) %>
-<% end %>
-
-<button><%= link_to 'your pet', pet_path if current_user == @user%></button>
+<div class="d-flex">
+  <div>
+    <%= cl_image_tag @user.photos.first.key, class: "dog_image", style: "width: 100%; height: 429.83px; object-fit:cover;
+    ", alt: "Responsive image" %>
+    <div class="m-5">
+      <h2 class="pet_name"><strong><%= @user.name %></strong></h2>
+      <p><i class="fa-solid fa-cake-candles pe-2"></i><%= pluralize(@user.age, "an") %></p>
+      <p><%= @user.description %></p>
+      <div class="d-flex align-items-center">
+        <% if current_user == @user %>
+          <%= link_to pet_path(@user.pet) do %>
+            <%= cl_image_tag @user.pet.photos.first.key, class: "avatar_show pet_user_border me-2" %>
+          <% end %>
+        <% end %>
+        <div>
+          <div>
+            <strong><%= @user.pet.name %></strong>
+          </div>
+          <div class="pet_user_size">
+            <%= @user.pet.age %> ans
+          </div>
+        </div>
+      </div>
+    </div>
+    <% if policy(@user).edit? %>
+      <%= link_to "Edit my profile", edit_user_path(@user) %>
+    <% end %>
+  </div>
+</div>
