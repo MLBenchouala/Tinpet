@@ -1,7 +1,6 @@
 
 .styledborder {
-  border: 1px;
-  border-style: groove;
+  box-shadow: 0 0 30px rgb(200, 200, 200);
 }
 
 .infospet {
@@ -12,7 +11,7 @@
 
 
 .cul {
-  margin-block: 260px;
+  //margin-block: 260px;
   color: #FF6666;
 
 }

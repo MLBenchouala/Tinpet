@@ -61,7 +61,7 @@
   height: 70vh;
   background: #FFFFFF;
   padding-bottom: 40px;
-  border-radius: 8px;
+  border-radius: 13px;
   overflow: hidden;
   position: absolute;
   will-change: transform;
@@ -136,7 +136,6 @@
     border: 2px #FF3767 solid;
   }
   .user-infos {
-    pointer-events: none;
     margin-left: 0.5rem;
     .name {
       font-weight: 600;

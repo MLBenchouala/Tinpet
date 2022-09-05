@@ -1,3 +1,5 @@
+<%= image_tag "patte2.jpg", class: "patte2"%>
+<div class="e"> <strong>messages</strong> </div>
 <% @matches.each do |match| %>
   <%= link_to match_path(match), class: "text"  do %>
     <div class="card-product mb-1 crs">
@@ -10,3 +12,7 @@
     </div>
   <% end %>
 <% end %>
+
+<div class ='flexx'>
+<h1 class="nomatch"><%= "Sorry you don't have a match yet!" if @matches.length == 0 %></h1>
+</div>
