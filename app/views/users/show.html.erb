@@ -21,6 +21,7 @@
           </div>
         </div>
 
+     <% if @user.pets.length > 1 %>
      <div class="d-flex align-items-center mgleft">
           <%= link_to pet_path(@user.pets.second) do %>
             <%= cl_image_tag @user.pets.second.photos.first.key, class: "avatar_show pet_user_border me-2" %>
@@ -34,6 +35,7 @@
           </div>
         </div>
       </div>
+      <% end %>
       </div>
     </div>
   </div>
