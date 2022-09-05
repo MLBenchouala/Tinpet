@@ -1,4 +1,5 @@
-
+<%= image_tag "patte2.jpg", class: "patte2"%>
+<button class="btn btn-danger"><%= link_to "filters", pets_filtres_path %></button>
 
 <div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>">
   <div class="tinder--cards">
