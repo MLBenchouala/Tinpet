@@ -28,8 +28,6 @@ export default class extends Controller {
   liked(id) {
     this._updateCurentId()
 
-    console.log('hello ', this.currentId, id)
-
     const options = {
       method: "POST",
       headers: { "Accept": "application/json", "X-CSRF-TOKEN": this.csrf }
@@ -79,7 +77,10 @@ export default class extends Controller {
   _initSwipe() {
     this.cardTargets.forEach((el) => {
       const hammertime = new Hammer(el);
-
+      hammertime.domEvents = true;
+      hammertime.on('tap', (event) => {
+        window.location = `/pets/${this.currentId}`
+      })
       this._listenToPan(hammertime, el)
       this._listenToPanEnd(hammertime, el)
 

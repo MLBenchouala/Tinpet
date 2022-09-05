@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     user_path(current_user) # your path
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     pets_path
   end
 
