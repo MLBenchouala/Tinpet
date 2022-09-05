@@ -47,17 +47,27 @@ class PetsController < ApplicationController
     @pet.user = current_user
     authorize @pet
     if @pet.save
-      flash[:notice] = 'Pet created'
+      flash[:notice] = 'Nouveau compagnon !'
       redirect_to pet_path(@pet)
     else
-      flash[:alert] = 'AAAAAAAA'
+      flash[:alert] = "Erreur lors de l'enregistrement"
       render :new
     end
   end
 
   def update
-    @pet.update(pet_params)
     authorize @pet
+    if @pet.update(pet_update_params)
+      if params.dig(:pet, :photos).compact_blank.present?
+        @pet.photos.purge
+        @pet.photos.attach(params[:pet][:photos])
+      end
+      flash[:notice] = 'Mis à jour'
+      redirect_to pet_path(@pet)
+    else
+      flash[:alert] = "Erreur lors de l'enregistrement"
+      render :new
+    end
   end
 
   def show
@@ -90,5 +100,9 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(:name, :description, :sexe, :age, :race, photos: [])
+  end
+
+  def pet_update_params
+    params.require(:pet).permit(:name, :description, :sexe, :age, :race)
   end
 end
