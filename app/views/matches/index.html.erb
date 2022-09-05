@@ -1,5 +1,5 @@
 <%= image_tag "patte2.jpg", class: "patte2"%>
-<div class="e"> <strong>messages</strong> </div>
+<div class="e"> <strong><%= "Messages" if @matches.length != 0 %></strong> </div>
 <% @matches.each do |match| %>
   <%= link_to match_path(match), class: "text"  do %>
     <div class="card-product mb-1 crs">
