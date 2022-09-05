@@ -8,10 +8,12 @@
       <p><em><%= @pet.race %></em></p>
       <p><%= @pet.description %></p>
       <div class="d-flex align-items-center">
-        <%= cl_image_tag @pet.user.photos.first.key, class: "avatar_show pet_user_border me-2" %>
+        <%= link_to user_path(@pet.user) do %>
+          <%= cl_image_tag @pet.user.photos.first.key, class: "avatar_show pet_user_border me-2" %>
+        <% end %>
         <div>
           <div>
-            Fille d'<strong><%= @pet.user.name %></strong>
+            <strong><%= @pet.user.name %></strong>
           </div>
           <div class="pet_user_size">
             <%= @pet.user.age %> ans
