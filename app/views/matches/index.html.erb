@@ -1,4 +1,7 @@
-<%= image_tag "patte2.jpg", class: "patte2"%>
+<div class="w-100 d-flex">
+  <%= image_tag "patte2.jpg", class: "patte2"%>
+</div>
+
 <div class="e"> <strong>messages</strong> </div>
 <% @matches.each do |match| %>
   <%= link_to match_path(match), class: "text"  do %>

@@ -1,11 +1,12 @@
-<%= image_tag "patte2.jpg", class: "patte2"%>
+<div class="w-100 d-flex">
+  <%= image_tag "patte2.jpg", class: "patte2"%>
+</div>
 
 <div class="d-flex">
 
-  <div>
-    <%= cl_image_tag @pet.photos.first.key, class: "dog_image", style: "width: 100%; height: 429.83px; object-fit:cover;
-    ", alt: "Responsive image" %>
-    <div class="m-5">
+  <div class="px-4">
+    <%= cl_image_tag @pet.photos.first.key, class: "dog_image", alt: "Responsive image" %>
+    <div class="my-4">
       <h2 class="pet_name"><strong><%= @pet.name %></strong></h2>
       <p><i class="fa-solid fa-cake-candles pe-2"></i><%= pluralize(@pet.age, "an") %></p>
       <p><em><%= @pet.race %></em></p>
@@ -27,7 +28,6 @@
 
       <% if policy(@pet).edit? %>
       <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
-<%= link_to 'Add a pet !', new_pet_path%>
       <% end %>
       <%= button_to "Destroy this pet", @pet, method: :delete if policy(@pet).destroy? %>
     <div>
