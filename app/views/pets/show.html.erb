@@ -27,6 +27,7 @@
 
       <% if policy(@pet).edit? %>
       <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
+<%= link_to 'Add a pet !', new_pet_path%>
       <% end %>
       <%= button_to "Destroy this pet", @pet, method: :delete if policy(@pet).destroy? %>
     <div>

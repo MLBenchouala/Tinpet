@@ -18,21 +18,21 @@
         <div class="tinder--card-user">
           <%= cl_image_tag pet.user.photos.first.key %>
           <div class="user-infos">
-            <p class="name"><%= pet.user.name %></p>
+            <p class="name"><%= link_to "#{pet.user.name}", user_path(pet.user) %></p>
             <p class="infos">TODO Ville | <%= pet.user.age %></p>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-    <h1 class="cul">  Plus de chiennes aux alentours, reviens plus tard ou change tes parametres</h1>
+    <%# <h1 class="cul">  Plus de chiennes aux alentours, reviens plus tard ou change tes parametres</h1> %>
 
   <div class="tinder--buttons">
     <button id="nope" data-swipe-pets-target="nopeBtn" data-action="click->swipe-pets#disliked">
-      <i class="fa-solid fa-xmark"></i>
+      <i class="fa-solid fa-xmark rd"></i>
     </button>
     <button id="love" data-swipe-pets-target="likeBtn" data-action="click->swipe-pets#liked">
-      <i class="fa fa-heart"></i>
+      <i class="fa-regular fa-heart gr"></i>
     </button>
   </div>
 </div>
