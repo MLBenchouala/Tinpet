@@ -48,6 +48,8 @@
 
 .card {
   border-radius: 10px 10px 0px 0px;
+  height: calc(100vh - 250px - 35px); // la totalite de la view moins la navbar moins le profil
+  overflow-y: scroll;
 }
 
 .chatbox-wrapper {

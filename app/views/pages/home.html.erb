@@ -1,7 +1,8 @@
 
 <div style="background-image: url(<%= image_path "background.jpg"%>)", class="img-background">
     <%= image_tag "patte.jpg", class: "patte" %>
-    <h1> TINPET</h1>
+    <h1 class="title"> TINPET</h1>
     <%= link_to 'Trouve ton match', new_user_session_path, class: "buton-log" %>
     <%= link_to 'Sign in', new_user_registration_path, class: "sign" %>
+    <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete }, class: "sign" %>
 </div>
