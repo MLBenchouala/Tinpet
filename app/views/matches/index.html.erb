@@ -1,8 +1,15 @@
+
 <div class="w-100 d-flex">
   <%= image_tag "patte2.jpg", class: "patte2"%>
 </div>
+<%= image_tag "patte2.jpg", class: "patte2" %>
+<div class="e">  <%= 'messages' if @matches.length > 0  %></div>
+<%= form_tag matches_path, method: :get, class:"d-flex" do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Tape moi dessus grand fou ",  class:"me-2 searchbar" %>
+  <button type="submit" class="btn-pink pos-front">  search </button>
+<% end %>
 
-<div class="e"> <strong>messages</strong> </div>
+
 <% @matches.each do |match| %>
   <%= link_to match_path(match), class: "text"  do %>
     <div class="card-product mb-1 crs">

@@ -7,18 +7,27 @@
     <%= cl_image_tag @user.photos.first.key, class: "dog_image", alt: "Responsive image" %>
     <div class="my-4">
       <h2 class="pet_name"><strong><%= @user.name %></strong></h2>
+      <% if policy(@user).edit? %>
+        <%# <div class="d-flex"> %>
+          <i class="fa-solid fa-pen"></i>
+        <%# </div> %>
+      <% end %>
       <p><i class="fa-solid fa-cake-candles pe-2"></i><%= pluralize(@user.age, "an") %></p>
       <p><%= @user.description %></p>
       <div class="d-flex align-items-center">
-          <%= link_to pet_path(@user.pets.first) do %>
-            <%= cl_image_tag @user.pets.first.photos.first.key, class: "avatar_show pet_user_border me-2" %>
-          <% end %>
+
+        <%= link_to pet_path(@user.pets.first) do %>
+          <%= cl_image_tag @user.pets.first.photos.first.key, class: "avatar_show pet_user_border me-2" %>
+        <% end %>
+
         <div>
+
           <p class= "m-0"><strong><%= @user.pets.first.name %></strong></p>
           <p class= "pet_user_size m-0"><%= @user.pets.first.age %> ans</p>
         </div>
       </div>
       <%= link_to 'Add a pet !', new_pet_path, class: "btn btn-primary w-100 my-3"%>
+
     </div>
   </div>
 </div>
