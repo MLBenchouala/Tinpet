@@ -46,7 +46,7 @@
       </div>
       <% end %>
       </div>
-        <%= link_to 'Add a pet !', new_pet_path%>
+        <%= link_to 'Add a pet !', new_pet_path if current_user == @user%>
     </div>
   </div>
 </div>
