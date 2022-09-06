@@ -1,9 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 import Hammer from 'hammerjs'
+import Swal from 'sweetalert2'
+
 
 export default class extends Controller {
   static targets = [ "card", "nopeBtn", "likeBtn" ]
-  static values = { ids: Array, currentId: Number }
+  static values = { ids: Array, currentId: Number, background: String }
 
   connect() {
     this.csrf = document.querySelector("[name=csrf-token]").content
@@ -35,7 +37,23 @@ export default class extends Controller {
 
     fetch(`/pets/${this.currentId}/swipes?liked=true`, options)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then((data) => {
+        console.log(data)
+        if (data.matched) {
+          Swal.fire({
+            title: ` <strong>You matched with ${data.user_2_name} !</strong>`,
+            background: `url(${this.backgroundValue})` ,
+            html:
+               `<div class="container">
+                  <div class="match--card"><img src="${data.user_1_photo}" /></div>
+                  <div class="match--card"><img src="${data.user_2_photo}" /></div>
+                </div>
+                <div><a href="http://localhost:3000/matches/${data.match_id}"class="btn">Message them</a></div>
+                <div><a href="http://localhost:3000/pets"class="btn">Keep swiping</a></div>
+                `
+          })
+        }
+      })
 
     this._updateCurentId()
   }
@@ -51,7 +69,9 @@ export default class extends Controller {
 
     fetch(`/pets/${this.currentId}/swipes?liked=false`, options)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then((data) => {
+        console.log(data)
+      })
 
     this._updateCurentId()
 

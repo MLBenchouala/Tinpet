@@ -27,4 +27,8 @@ class User < ApplicationRecord
   def matches
     Match.where(user1: self).or(Match.where(user2: self))
   end
+
+  def avatar_url
+    ActionController::Base.helpers.cl_image_path(photos.first.key)
+  end
 end

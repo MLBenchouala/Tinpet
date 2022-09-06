@@ -3,15 +3,12 @@
   <%= image_tag "patte2.jpg", class: "patte2"%>
 </div>
 
-<button class="btn btn-danger"><%= link_to "filters", pets_filtres_path %></button>
-
-
 <% if @pets.length == 0 %>
  <h1 class="flexx nomatch"><%= "Sorry there is no more pets to show :(" %></h1>
 
 <% end %>
 
-<div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>">
+<div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>" data-swipe-pets-background-value="<%= image_path "background.jpg" %>">
   <div class="tinder--cards">
     <% @pets.each do |pet| %>
       <div class="tinder--card styledborder" data-swipe-pets-target="card" data-id="<%= pet.id %>">
