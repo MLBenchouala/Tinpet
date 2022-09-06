@@ -151,6 +151,23 @@
   }
 }
 
+.match--card {
+  align-items: center;
+  padding: 10px;
+  flex: 1;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    pointer-events: none;
+    height: 60px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px #FF3767 solid;
+  }
+}
+
 .tinder--buttons {
   display: flex;
   justify-content: space-around;

@@ -19,17 +19,20 @@ class SwipesController < ApplicationController
       unless mirors_swipes.empty?
         @match = Match.new(user1: current_user, user2: @pet.user  )
         @match.save!
-        # [*mirors_swipes, @swipe].each do |swipe|
-        #   MatchedSwipe.create(match: @match, swipe: swipe)
-        # end
       end
-      flash[:notice] = "all good"
     else
       flash[:alert] = "something went wrong"
     end
 
     authorize @swipe
-    render json: { liked: params[:liked] }
+    render json: {
+      liked: params[:liked],
+      matched: !@match.nil?,
+      user_2_name:  @match.user2.name,
+      user_1_photo:  @match.user1.avatar_url,
+      user_2_photo: @match.user2.avatar_url,
+      match_id:  @match.id
+    }
   end
 
   private

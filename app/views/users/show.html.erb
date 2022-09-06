@@ -28,7 +28,9 @@
       </div>
       <% if policy(@user).edit? %>
       <%= link_to 'Add a pet !', new_pet_path, class: "btn btn-primary w-100 my-3"%>
-      <% end %>
+
+      <%= link_to 'Se déconnecter', destroy_user_session_path,  data: {turbo_method: :delete}, class: "nb-icon" %>
+
     </div>
   </div>
 </div>
