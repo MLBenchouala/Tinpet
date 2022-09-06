@@ -26,8 +26,9 @@
           <p class= "pet_user_size m-0"><%= @user.pets.first.age %> ans</p>
         </div>
       </div>
+      <% if policy(@user).edit? %>
       <%= link_to 'Add a pet !', new_pet_path, class: "btn btn-primary w-100 my-3"%>
-
+      <% end %>
     </div>
   </div>
 </div>
