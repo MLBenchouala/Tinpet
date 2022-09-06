@@ -33,7 +33,6 @@
       <% if policy(@pet).edit? %>
       <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
       <% end %>
-      <%= button_to "Destroy this pet", @pet, method: :delete if policy(@pet).destroy? %>
     <div>
   </div>
 </div>
