@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: %i[show update delete edit]
+  before_action :set_pet, only: %i[show update destroy edit]
 
   def index
     @pets = policy_scope(Pet).where.not(user: current_user)
@@ -64,7 +64,8 @@ class PetsController < ApplicationController
     authorize @pet
   end
 
-  def delete
+  def destroy
+    @pet.destroy
     authorize @pet
   end
 
