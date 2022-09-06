@@ -37,7 +37,7 @@
   transform: scale(1);
 }
 
-.tinder_nope .fa-remove {
+.tinder_nope .fa-xmark {
   opacity: 0.7;
   transform: scale(1);
 }
@@ -200,11 +200,11 @@
 }
 
 .fa-heart {
-  color: #FFACE4;
+  color: #00ff8c;
 }
 
-.fa-remove {
-  color: #CDD6DD;
+.fa-xmark {
+  color: rgb(255, 13, 0);
 }
 
 // Filter button potential style

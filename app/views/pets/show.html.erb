@@ -1,12 +1,17 @@
+
 <div class="w-100 d-flex">
   <%= image_tag "patte2.jpg", class: "patte2"%>
 </div>
 
+<%= image_tag "patte2.jpg", class: "patte2"%>
 <div class="d-flex">
+
 
   <div class="px-4">
     <%= cl_image_tag @pet.photos.first.key, class: "dog_image", alt: "Responsive image" %>
     <div class="my-4">
+
+
       <h2 class="pet_name"><strong><%= @pet.name %></strong></h2>
       <p><i class="fa-solid fa-cake-candles pe-2"></i><%= pluralize(@pet.age, "an") %></p>
       <p><em><%= @pet.race %></em></p>
@@ -17,7 +22,7 @@
         <% end %>
         <div>
           <div>
-            <strong><%= @pet.user.name %></strong>
+          <strong><%= @pet.user.name %></strong>
           </div>
           <div class="pet_user_size">
             <%= @pet.user.age %> ans

@@ -1,6 +1,15 @@
+
 <div class="w-100 d-flex">
   <%= image_tag "patte2.jpg", class: "patte2"%>
 </div>
+
+<button class="btn btn-danger"><%= link_to "filters", pets_filtres_path %></button>
+
+
+<% if @pets.length == 0 %>
+ <h1 class="flexx nomatch"><%= "Sorry there is no more pets to show :(" %></h1>
+
+<% end %>
 
 <div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>">
   <div class="tinder--cards">
@@ -21,15 +30,15 @@
         <div class="tinder--card-user">
           <%= cl_image_tag pet.user.photos.first.key %>
           <div class="user-infos">
-            <p class="name"><%= link_to "#{pet.user.name}", user_path(pet.user) %></p>
+            <p class="name"><%= link_to "#{pet.user.name}", user_path(pet.user), onclick: "console.log('hello')" %></p>
             <p class="infos">TODO Ville | <%= pet.user.age %></p>
           </div>
         </div>
       </div>
     <% end %>
+
   </div>
     <%# <h1 class="cul">  Plus de chiennes aux alentours, reviens plus tard ou change tes parametres</h1> %>
-
   <div class="tinder--buttons">
     <%#= link_to "filters", pets_filtres_path, class: "btn btn-primary filters" %>
     <button id="nope" data-swipe-pets-target="nopeBtn" data-action="click->swipe-pets#disliked">

@@ -7,3 +7,7 @@
 <%= f.input :sexe, collection: %w[male female] %>
 <%= f.submit %>
 <% end %>
+
+<button class ='btn btn-danger'>
+<%= link_to 'Back to your profile !', user_path(current_user) %>
+</button>
