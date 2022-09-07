@@ -38,3 +38,8 @@ button.swal2-confirm.swal2-styled {
   overflow-x: hidden;
   transition: background-color .1s;
 }
+
+.swal2-modal {
+  background-size: cover !important;
+  background-position: center !important;
+}

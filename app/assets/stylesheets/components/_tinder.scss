@@ -18,4 +18,14 @@
 
 .container {
   display: flex;
+  position: relative;
+}
+
+.photo_R {
+  position: absolute;
+  right: 138px;
+}
+
+.photo_L img{
+  margin-right: 70px;
 }
