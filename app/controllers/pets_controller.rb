@@ -15,7 +15,7 @@ class PetsController < ApplicationController
       @user_walk = @search["user_walk"]
       @user_more = @search["user_more"]
 
-      @users = User.where(age: @user_age) if @user_age != ''
+      @users = User.where(age: age_range_h(@user_age)) if @user_age != ''
       @users = @users.where("address ILIKE ?", "%#{@user_address}%") if @user_address != ''
       @users = @users.where("orientation ILIKE ?", "%#{@user_orientation}%") if @user_orientation != ''
       @users = @users.where("gender ILIKE ?", "%#{@user_gender}%") if @user_gender != ''
@@ -37,7 +37,7 @@ class PetsController < ApplicationController
       @age = @search["age"]
 
       @pets = @pets.where("sexe ILIKE ?", "%#{@sexe}%") if @sexe != ''
-      @pets = @pets.where(age: @age) if @age != ''
+      @pets = @pets.where(age: age_range(@age)) if @age != ''
       @pets = @pets.where("race ILIKE ?", "%#{@race}%") if @race != ''
     end
   end
@@ -105,5 +105,29 @@ class PetsController < ApplicationController
 
   def pet_update_params
     params.require(:pet).permit(:name, :description, :sexe, :age, :race)
+  end
+
+  def age_range(input_age)
+    case input_age
+    when '0 - 4 ans'
+      0..4
+    when '4 - 8 ans'
+      4..8
+    when '8 ans et +'
+      8..
+    end
+  end
+
+  def age_range_h(input_age_h)
+    case input_age_h
+    when '18 - 25 ans'
+      18..25
+    when '25 - 35 ans'
+      25..35
+    when '35 - 45 ans'
+      35..45
+    when '45 ans et +'
+      45..
+    end
   end
 end
