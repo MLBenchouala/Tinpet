@@ -66,3 +66,44 @@
   background: #04AA6D;
   cursor: pointer;
 }
+
+.wrapper-form{
+  margin: 1rem 1rem 130px 1rem;
+  color: $lightpink;
+  padding: 2rem;
+}
+
+.design-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem !important;
+}
+
+.design-label-form{
+  margin-right: 1rem;
+  margin-bottom: 0 !important;
+  flex: none;
+  width: 5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: light;
+  font-size: 15px;
+}
+
+.mg-bt {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.tick-desgin{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.tick-d {
+  margin-left: 1rem;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: light;
+}
