@@ -3,15 +3,8 @@
   <%= image_tag "patte2.jpg", class: "patte2"%>
 </div>
 
-<<<<<<< HEAD
 <% if @pets.length == 0 %>
  <h1 class="flexx nomatch"><%= "Desolé il n'y plus de profils :(" %></h1>
-=======
-<div class ='d-flex align-items-center justify-content-center' style="height: 80vh;">
-  <% if @pets.length == 0 %>
-  <h1 class="nomatch"><%= "Désolé, il n'y plus de compagnons poilus dans ton secteur :(" %></h1>
-  <% else %>
->>>>>>> e53cb24efd32cc90a3d911f2f28a00300c44246b
 
   <div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>" data-swipe-pets-background-value="<%= image_path "background.jpg" %>">
     <div class="tinder--cards">
