@@ -9,9 +9,7 @@
         <%= cl_image_tag current_user.photos.first.key, class: "avatar_navbar" %>
       <% end %>
     </div>
-    <div class="user-name">
-      Salut <strong><%= current_user.name %></strong>
-    </div>
+
     <%= link_to pets_path, class: "navbar-swipe" do %>
       <%= image_tag "icons/swipe.png" %>
     <% end %>
