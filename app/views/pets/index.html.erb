@@ -5,6 +5,7 @@
 
 <% if @pets.length == 0 %>
  <h1 class="flexx nomatch"><%= "Desolé il n'y plus de profils :(" %></h1>
+ <% end %>
 
   <div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>" data-swipe-pets-background-value="<%= image_path "background.jpg" %>">
     <div class="tinder--cards">
@@ -47,5 +48,5 @@
       </button>
     </div>
   </div>
-  <% end %>
+
 </div>
