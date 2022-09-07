@@ -31,7 +31,7 @@
     </div>
 
       <% if policy(@pet).edit? %>
-      <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
+      <%= link_to "Edit this pet", edit_pet_path(@pet), class: "btn btn-primary w-100 my-3 btnstyle nmtop"%>
       <% end %>
     <div>
   </div>
