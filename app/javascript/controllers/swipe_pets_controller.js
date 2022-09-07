@@ -41,14 +41,18 @@ export default class extends Controller {
         console.log(data)
         if (data.matched) {
           Swal.fire({
+<<<<<<< HEAD
+=======
 
             title: ` <strong>You matched with ${data.user_2_name} !</strong>`,
+>>>>>>> 6de669435d8f58c2a7d36d56cb0604ac63239ba9
             background: `url(${this.backgroundValue})`,
             html:
                `<div class="container">
                   <div class="match--card photo_R"><img src="${data.user_1_photo}" /></div>
                   <div class="match--card photo_L"><img src="${data.user_2_photo}" /></div>
                 </div>
+                <div><h2> It's a match!</h2></div>
                 <div class="my-5"><a href="/matches/${data.match_id}"class="btn">Message them</a></div>
                 <div><a href="/pets"class="btn">Keep swiping</a></div>
 
