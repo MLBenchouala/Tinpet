@@ -2,6 +2,7 @@
 <div class="w-100 d-flex">
   <%= image_tag "patte2.jpg", class: "patte2"%>
 </div>
+
 <h1 class="nomatch"><%= "Vos messages" if @matches.length > 0 %></h1>
 <h1 class="nomatch"><%= "Désolé, vous n'avez pas encore de messages !" if @matches.length == 0 %></h1>
 
