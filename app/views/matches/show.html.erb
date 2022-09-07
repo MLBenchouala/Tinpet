@@ -3,7 +3,9 @@
   <%= link_to user_path(@match.interlocutor_of(current_user)) do %>
     <%=cl_image_tag @match.interlocutor_of(current_user).photos.first.key, class: "avatar_chat ppp"%>
   <% end %>
+
 </div>
+<%= link_to 'See the profile !', user_path(@match.interlocutor_of(current_user)), class:'' %>
 
 
 <div data-controller="match-subscription"

@@ -7,8 +7,8 @@
 
 <% @matches.each do |match| %>
   <%= link_to match_path(match), class: "text"  do %>
-    <div class="card-product mb-1 crs">
-      <%= cl_image_tag match.interlocutor_of(current_user).photos.first.key, class: "avatar"%>
+    <div class="card-product mb-1 crs dsgmsg">
+      <%= cl_image_tag match.interlocutor_of(current_user).photos.first.key, class: "avatar dsgavatar"%>
       <div class="card-product-info k ">
        <h2 class='tt'> <%= match.interlocutor_of(current_user).name %> </h2>
         <% if Message.find_by(user: match.interlocutor_of(current_user), match: match) %>
