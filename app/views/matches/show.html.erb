@@ -1,9 +1,11 @@
 <div class = 'barbar'>
-<h1 class="mb-3 align"><%= @match.interlocutor_of(current_user).name %></h1>
-<%=cl_image_tag @match.interlocutor_of(current_user).photos.first.key, class: "avatar_chat" %>
-<%= link_to 'See the profile !', user_path(@match.interlocutor_of(current_user)), class:'d-none' %>
-</div>
+  <h1 class="mb-3 align nameshmtc"><%= @match.interlocutor_of(current_user).name %></h1>
+  <%= link_to user_path(@match.interlocutor_of(current_user)) do %>
+    <%=cl_image_tag @match.interlocutor_of(current_user).photos.first.key, class: "avatar_chat ppp"%>
+  <% end %>
 
+</div>
+<%= link_to 'See the profile !', user_path(@match.interlocutor_of(current_user)), class:'d-none' %>
 
 
 <div data-controller="match-subscription"

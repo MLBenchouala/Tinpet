@@ -10,10 +10,10 @@
 .pet_name {
   font-family: 'Poppins';
   font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
   line-height: 28px;
   color: #FF6666;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .pet_user_border {
@@ -22,4 +22,8 @@
 
 .pet_user_size {
   font-size: 12px;
+}
+
+.nmtop {
+  margin-top: 0rem !important;
 }

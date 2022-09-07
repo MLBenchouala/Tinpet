@@ -41,6 +41,7 @@ export default class extends Controller {
         console.log(data)
         if (data.matched) {
           Swal.fire({
+
             title: ` <strong>You matched with ${data.user_2_name} !</strong>`,
             background: `url(${this.backgroundValue})`,
             html:
@@ -50,6 +51,9 @@ export default class extends Controller {
                 </div>
                 <div class="my-5"><a href="/matches/${data.match_id}"class="btn">Message them</a></div>
                 <div><a href="/pets"class="btn">Keep swiping</a></div>
+
+
+
                 `
           })
         }
