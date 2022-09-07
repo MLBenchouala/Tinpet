@@ -5,7 +5,7 @@
   <% end %>
 
 </div>
-<%= link_to 'See the profile !', user_path(@match.interlocutor_of(current_user)), class:'' %>
+<%= link_to 'See the profile !', user_path(@match.interlocutor_of(current_user)), class:'d-none' %>
 
 
 <div data-controller="match-subscription"
