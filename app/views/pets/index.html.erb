@@ -4,10 +4,9 @@
 </div>
 
 <% if @pets.length == 0 %>
-
- <h1 class="flexx nomatch"><%= "Desolé il n'y plus de profils, revenez plus tard ou ajustez vos filtres" %></h1>
-<div class ='d-flex align-items-center justify-content-center' style="height: 80vh;">
-
+ <h1 class="flexx nomatch"><%= "Desolé il n'y plus de pets" %></h1>
+ <% end %>
+<% if @pets.length != 0 %>
 
   <div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>" data-swipe-pets-background-value="<%= image_path "background.jpg" %>">
     <div class="tinder--cards">
