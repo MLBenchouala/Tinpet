@@ -48,9 +48,9 @@ export default class extends Controller {
                   <div class="match--card photo_R"><img src="${data.user_1_photo}" /></div>
                   <div class="match--card photo_L"><img src="${data.user_2_photo}" /></div>
                 </div>
-                <div><h2> It's a match!</h2></div>
-                <div class="my-5"><a href="/matches/${data.match_id}"class="btn">Message them</a></div>
-                <div><a href="/pets"class="btn">Keep swiping</a></div>
+                <div class="match"><h2> It's a MATCH!</h2></div>
+                <div class="buton-log"><a href="/matches/${data.match_id}"class="btn">Envoyer un message</a></div>
+                <div><a href="/pets"class="buton-log">Continuer à swap</a></div>
 
 
 
