@@ -41,11 +41,7 @@ export default class extends Controller {
         console.log(data)
         if (data.matched) {
           Swal.fire({
-<<<<<<< HEAD
-=======
 
-            title: ` <strong>You matched with ${data.user_2_name} !</strong>`,
->>>>>>> 6de669435d8f58c2a7d36d56cb0604ac63239ba9
             background: `url(${this.backgroundValue})`,
             html:
                `<div class="container">
