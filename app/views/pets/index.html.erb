@@ -4,8 +4,11 @@
 </div>
 
 <% if @pets.length == 0 %>
+
  <h1 class="flexx nomatch"><%= "Desolé il n'y plus de profils, revenez plus tard ou ajustez vos filtres" %></h1>
 <div class ='d-flex align-items-center justify-content-center' style="height: 80vh;">
+
+
   <div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>" data-swipe-pets-background-value="<%= image_path "background.jpg" %>">
     <div class="tinder--cards">
       <% @pets.each do |pet| %>
@@ -22,30 +25,31 @@
           <%#= pet.description %>
           <%# </p> %>
 
-          <div class="tinder--card-user">
-            <%= cl_image_tag pet.user.photos.first.key %>
-            <div class="user-infos">
+            <div class="tinder--card-user">
+              <%= cl_image_tag pet.user.photos.first.key %>
+              <div class="user-infos">
               <p class="name"><%= link_to "#{pet.user.name}", user_path(pet.user), onclick: "console.log('hello')" %></p>
-              <p class="infos">TODO Ville | <%= pet.user.age %></p>
+              <p class="infos"> <%= pet.user.address %> | <%= pet.user.age %></p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
 
     </div>
-      <%# <h1 class="cul">  Plus de chiennes aux alentours, reviens plus tard ou change tes parametres</h1> %>
+    <% if @pets.length != 0 %>
     <div class="tinder--buttons">
-      <%#= link_to "filters", pets_filtres_path, class: "btn btn-primary filters" %>
       <button id="nope" data-swipe-pets-target="nopeBtn" data-action="click->swipe-pets#disliked">
         <i class="fa-solid fa-xmark rd"></i>
       </button>
       <%= link_to pets_filtres_path, class: "btn btn-primary filters", id: "filter" do %>
         <i class="fa-solid fa-bars-progress"></i>
-      <% end %>
+        <% end %>
       <button id="love" data-swipe-pets-target="likeBtn" data-action="click->swipe-pets#liked">
         <i class="fa-regular fa-heart gr"></i>
       </button>
     </div>
+    <% end %>
   </div>
-  <% end %>
+
 </div>
