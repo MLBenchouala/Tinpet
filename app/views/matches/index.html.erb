@@ -7,10 +7,18 @@
 
 <% @matches.each do |match| %>
   <%= link_to match_path(match), class: "text"  do %>
+
     <div class="card-product mb-1 crs dsgmsg">
-      <%= cl_image_tag match.interlocutor_of(current_user).photos.first.key, class: "avatar dsgavatar"%>
+      <div class="d-flex align-items-center">
+        <%= cl_image_tag match.interlocutor_of(current_user).photos.first.key, class: "avatar-matches me-2 dsgavatar"%>
+        <div>
+          <div><h2 class='tt'><strong><%= match.interlocutor_of(current_user).name %></strong></h2></div>
+          <div><%= match.interlocutor_of(current_user).age %> ans</div>
+        </div>
+      </div>
+
+
       <div class="card-product-info k ">
-       <h2 class='tt'> <%= match.interlocutor_of(current_user).name %> </h2>
         <% if Message.find_by(user: match.interlocutor_of(current_user), match: match) %>
         <% end %>
       </div>
@@ -18,6 +26,6 @@
   <% end %>
 <% end %>
 
-<div class ='flexx'>
-<h1 class="nomatch"><%= "Sorry you don't have a match yet!" if @matches.length == 0 %></h1>
+<div class ='d-flex align-items-center justify-content-center' style="height: 80vh;">
+<h1 class="nomatch"><%= "Désolé, vous n'avez pas encore de matchs !" if @matches.length == 0 %></h1>
 </div>

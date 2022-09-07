@@ -1,6 +1,7 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+  border: white 1px solid;
 }
 .avatar-large {
   width: 56px;
@@ -29,5 +30,13 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-left: 20px;
+}
+
+.avatar-matches {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #FF3767;
   margin-left: 20px;
 }

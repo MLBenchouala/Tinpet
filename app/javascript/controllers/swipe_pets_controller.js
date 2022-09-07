@@ -48,8 +48,10 @@ export default class extends Controller {
                   <div class="match--card"><img class="dsgimgpp" src="${data.user_1_photo}" /></div>
                   <div class="match--card"><img class="dsgimgpp" src="${data.user_2_photo}" /></div>
                 </div>
-                <div><a href="http://localhost:3000/matches/${data.match_id}" class="btn dsgpopup">Message them</a></div>
-                <div><a href="http://localhost:3000/pets" class="btn dsgpopupp">Keep swiping</a></div>
+
+                <div class="my-5"><a href="http://localhost:3000/matches/${data.match_id}"class="btn-message">Message them</a></div>
+                <div><a href="http://localhost:3000/pets"class="btn">Keep swiping</a></div>
+
                 `
           })
         }
