@@ -43,3 +43,12 @@ button.swal2-confirm.swal2-styled {
   background-size: cover !important;
   background-position: center !important;
 }
+
+.swal2-html-container {
+
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
