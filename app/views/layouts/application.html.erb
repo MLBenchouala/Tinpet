@@ -35,11 +35,11 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
   </head>
 
-  <body>
+  <body id="<%= controller_name %>_<%= action_name %>">
 
     <%# <%= render "shared/flashes" %>
     <%= yield %>
-    <% if current_user %>
+    <% if current_user && !current_page?(root_path) %>
       <%= render "shared/navbar" %>
     <% end %>
   </body>
