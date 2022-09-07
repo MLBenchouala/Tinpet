@@ -12,22 +12,28 @@
 
 
       <h2 class="pet_name"><strong><%= @pet.name %></strong></h2>
-      <p><i class="fa-solid fa-cake-candles pe-2"></i><%= pluralize(@pet.age, "an") %></p>
-      <p><em><%= @pet.race %></em></p>
+      <div class="d-flex">
+        <div class="me-2">
+          <p><i class="fa-solid fa-cake-candles pe-2"></i><%= pluralize(@pet.age, "an") %> </p>
+        </div>
+        <p>| <em><%= @pet.race %></em></p>
+      </div>
       <p><%= @pet.description %></p>
-      <div class="d-flex align-items-center">
-        <%= link_to user_path(@pet.user) do %>
-          <%= cl_image_tag @pet.user.photos.first.key, class: "avatar_show pet_user_border me-2" %>
-        <% end %>
-        <div>
+      <% unless @pet.user == current_user %>
+        <div class="d-flex align-items-center">
+          <%= link_to user_path(@pet.user) do %>
+            <%= cl_image_tag @pet.user.photos.first.key, class: "avatar_show pet_user_border me-2" %>
+          <% end %>
           <div>
-          <strong><%= @pet.user.name %></strong>
-          </div>
-          <div class="pet_user_size">
-            <%= @pet.user.age %> ans
+            <div>
+            <strong><%= @pet.user.name %></strong>
+            </div>
+            <div class="pet_user_size">
+              <%= @pet.user.age %> ans
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
 
       <% if policy(@pet).edit? %>
