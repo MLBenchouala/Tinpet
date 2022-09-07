@@ -4,42 +4,42 @@ Pet.destroy_all
 User.destroy_all
 
 puts 'Users creation...'
-user_1 = User.new(name: "Louis", walk: false, more: true, description: "Je suis en panne d'inspi donc je compte sur mon chien pour trouver la bonne", age: 22, gender: "homme", orientation: "hétéro", email: "teste.exemple@test.com", password: "123456", address: "10 rue Gros")
+user_1 = User.new(name: "Louis", walk: false, more: true, description: "Je suis en panne d'inspi donc je compte sur mon chien pour trouver la bonne", age: 22, gender: "homme", orientation: "hétéro", email: "teste.exemple@test.com", password: "123456", address: "Paris")
 file = URI.open("https://upload.wikimedia.org/wikipedia/commons/5/5f/Louis_XIV_of_France.jpg")
 user_1.photos.attach(io: file, filename: "user")
 user_1.save!
 
-user_2 = User.new(name: "Jade", walk: true, more: false, description: "Ma chienne veut faire de nouvelles rencontres et moi aussi", age: 25, gender: "femme", orientation: "hétéro", email: "testa.exemple@test.com", password: "123456")
+user_2 = User.new(name: "Jade", walk: true, more: false, description: "Ma chienne veut faire de nouvelles rencontres et moi aussi", age: 25, gender: "femme", orientation: "hétéro", email: "testa.exemple@test.com", password: "123456", address: "Paris")
 file = URI.open("https://global-img.gamergen.com/ea-electronic-arts-jade-raymond_0000811378.jpg")
 user_2.photos.attach(io: file, filename: "user")
 user_2.save!
 
-user_3 = User.new(name: "Nathan", walk: true, more: true, description: "Ma chienne adore sortir mais j'en ai marre d'y aller tout seul", age: 36, gender: "homme", orientation: "hétéro", email: "testo.exemple@test.com", password: "123456")
+user_3 = User.new(name: "Nathan", walk: true, more: true, description: "Ma chienne adore sortir mais j'en ai marre d'y aller tout seul", age: 36, gender: "homme", orientation: "hétéro", email: "testo.exemple@test.com", password: "123456", address: "Paris")
 file = URI.open("https://static.wikia.nocookie.net/uncharted/images/9/9d/Nathan_Drake_from_A_Thief%27s_End.png/revision/latest?cb=20180521172750")
 user_3.photos.attach(io: file, filename: "user")
 user_3.save!
 
-user_4 = User.new(name: "Sander", walk: true, more: true, description: "Je suis nouveau sur Paris et j'aimerais faire de nouvelles rencontres pour moi et mon chien", age: 30, gender: "homme", orientation: "hétéro", email: "testu.exemple@test.com", password: "123456")
+user_4 = User.new(name: "Sander", walk: true, more: true, description: "Je suis nouveau sur Paris et j'aimerais faire de nouvelles rencontres pour moi et mon chien", age: 30, gender: "homme", orientation: "hétéro", email: "testu.exemple@test.com", password: "123456", address: "Paris")
 file = URI.open("https://www.institinvest.com/sites/default/files/styles/scale_width_626/public/2020-02/trond-grande-press-photo-high-res_cropped_0.jpg?itok=mEZ4mcxW")
 user_4.photos.attach(io: file, filename: "user")
 user_4.save!
 
-user_5 = User.new(name: "Annika", walk: false, more: true, description: "J'aimerais savoir qui sera le premier à trouver l'amour entre moi et ma chienne", age: 45, gender: "femme", orientation: "hétéro", email: "testm.exemple@test.com", password: "123456")
+user_5 = User.new(name: "Annika", walk: false, more: true, description: "J'aimerais savoir qui sera le premier à trouver l'amour entre moi et ma chienne", age: 45, gender: "femme", orientation: "hétéro", email: "testm.exemple@test.com", password: "123456", address: "Paris")
 file = URI.open("https://www.baiskadreams.com/14698-thickbox_default/deguisement-hollandaise-bleu-de-delft-femme-luxe.jpg")
 user_5.photos.attach(io: file, filename: "user")
 user_5.save!
 
-user_6 = User.new(name: "Olivia", walk: false, more: true, description: "On dit que le chien est le meilleur ami de l'homme...", age: 24, gender: "femme", orientation: "hétéro", email: "testi.exemple@test.com", password: "123456")
+user_6 = User.new(name: "Olivia", walk: false, more: true, description: "On dit que le chien est le meilleur ami de l'homme...", age: 24, gender: "femme", orientation: "hétéro", email: "testi.exemple@test.com", password: "123456", address: "Paris")
 file = URI.open("http://flashmode.tn/wp-content/uploads/2016/02/Delta-Goodrem-782x1024.jpg")
 user_6.photos.attach(io: file, filename: "user")
 user_6.save!
 
-user_7 = User.new(name: "Laura", walk: true, more: true, description: "Je souhaite rencontrer des gens qui partagent ma passion pour les animaux", age: 26, gender: "femme", orientation: "hétéro", email: "testl.exemple@test.com", password: "123456")
+user_7 = User.new(name: "Laura", walk: true, more: true, description: "Je souhaite rencontrer des gens qui partagent ma passion pour les animaux", age: 26, gender: "femme", orientation: "hétéro", email: "testl.exemple@test.com", password: "123456", address: "Paris")
 file = URI.open("https://thumbs.dreamstime.com/z/femme-v%C3%A9t%C3%A9rinaire-30548295.jpg")
 user_7.photos.attach(io: file, filename: "user")
 user_7.save!
 
-user_8 = User.new(name: "Bertrand", walk: false, more: true, description: "Je suis pas ici pour me balader", age: 54, gender: "homme", orientation: "hétéro", email: "testx.exemple@test.com", password: "123456")
+user_8 = User.new(name: "Bertrand", walk: false, more: true, description: "Je suis pas ici pour me balader", age: 54, gender: "homme", orientation: "hétéro", email: "testx.exemple@test.com", password: "123456", address: "Paris")
 file = URI.open("https://www.dhnet.be/resizer/lTfIIttoOCbSJXIxuqFSHsLYHWM=/768x512/filters:focal(1147x773:1157x763)/cloudfront-eu-central-1.images.arcpublishing.com/ipmgroup/SSJNQCWUYFD6TMCKRMNTPU6MZQ.jpg")
 user_8.photos.attach(io: file, filename: "user")
 user_8.save!

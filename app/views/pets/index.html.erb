@@ -28,7 +28,7 @@
               <%= cl_image_tag pet.user.photos.first.key %>
               <div class="user-infos">
               <p class="name"><%= link_to "#{pet.user.name}", user_path(pet.user), onclick: "console.log('hello')" %></p>
-              <p class="infos">TODO Ville | <%= pet.user.age %></p>
+              <p class="infos"> <%= pet.user.address %> | <%= pet.user.age %></p>
               </div>
             </div>
           </div>
