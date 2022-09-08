@@ -18,14 +18,13 @@
         <%= cl_image_tag match.interlocutor_of(current_user).photos.first.key, class: "avatar-matches me-2 dsgavatar"%>
         <div>
           <div><h2 class='tt'><strong><%= match.interlocutor_of(current_user).name %></strong></h2></div>
-          <div class="gg"><%= match.interlocutor_of(current_user).age %> ans</div>
-        </div>
-      </div>
+          <div class="gg">
+              <% if Message.find_by(user: match.interlocutor_of(current_user), match: match) %>
+            <p class='helllo'> <%= Message.where(user: match.interlocutor_of(current_user), match: match).last.content %> </p>
 
-      <div class="card-product-info k ">
-        <% if Message.find_by(user: match.interlocutor_of(current_user), match: match) %>
-            <div> <p class="msg"> <%= Message.where(user: match.interlocutor_of(current_user), match: match).last.content %> </p></div>
-        <% end %>
+              <% end %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
