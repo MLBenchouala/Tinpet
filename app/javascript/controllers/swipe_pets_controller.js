@@ -93,7 +93,7 @@ export default class extends Controller {
 
     cards.forEach((card, index) => {
       card.style.zIndex = cards.length - index;
-      card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
+      card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 0 * index + 'px)';
       card.style.opacity = (10 - index) / 10;
     });
 
