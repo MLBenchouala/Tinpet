@@ -17,7 +17,7 @@ class SwipesController < ApplicationController
       mirors_swipes = Swipe.where(user: @pet.user, pet: current_user.pets)
 
       unless mirors_swipes.empty?
-        @match = Match.new(user1: current_user, user2: @pet.user  )
+        @match = Match.new(user1: current_user, user2: @pet.user)
         @match.save!
       end
     else
@@ -28,10 +28,10 @@ class SwipesController < ApplicationController
     render json: {
       liked: params[:liked],
       matched: !@match.nil?,
-      user_2_name:  @match.user2.name,
-      user_1_photo:  @match.user1.avatar_url,
-      user_2_photo: @match.user2.avatar_url,
-      match_id:  @match.id
+      user_2_name: @match&.user2&.name,
+      user_1_photo: @match&.user1&.avatar_url,
+      user_2_photo: @match&.user2&.avatar_url,
+      match_id: @match&.id
     }
   end
 
