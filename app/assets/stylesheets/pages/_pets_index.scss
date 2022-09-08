@@ -92,6 +92,7 @@
   display: flex;
   align-items: center;
   margin-top: auto;
+  text-align: left;
   a {
     text-decoration: none;
     color: black;
@@ -147,9 +148,13 @@
   bottom:0;
   width: 100%;
   z-index: 99999;
-  & .filters {
-    position: absolute;
+  padding: 0 2rem;
+  .flip-cta {
+    color: rgba(0, 0, 0, 0.5);
   }
+  // & .filters {
+  //   // position: absolute;
+  // }
 }
 
 .tinder--buttons button {
@@ -175,8 +180,8 @@
   margin: 0 8px;
   box-shadow: -4px 4px 13px lightgrey;
   & i {
-    color: gainsboro;
-      font-size: 24px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 24px;
   }
 }
 
@@ -204,7 +209,6 @@
   width: 90vw;
   max-width: 400px;
   background: #FFFFFF;
-  border-radius: 13px;
   overflow: hidden;
   position: absolute;
   will-change: transform;
@@ -246,8 +250,9 @@
   text-align: center;
   // transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 0 15px rgb(200, 200, 200);
   pointer-events: none;
+  border: 1px solid rgba(255, 102, 102, 0.4);
+  border-radius: 14px;
 }
 
 
@@ -267,4 +272,15 @@
 
 .flipped {
   transform: rotateY(180deg);
+}
+
+.lol {
+  position: relative;
+  top: 28px;
+  right: 9px;
+}
+
+.color {
+
+  color: #FF3767;
 }

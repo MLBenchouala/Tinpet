@@ -13,5 +13,8 @@ application.register("hello", HelloController)
 import MatchSubscriptionController from "./match_subscription_controller"
 application.register("match-subscription", MatchSubscriptionController)
 
+import RangeFilterController from "./range_filter_controller"
+application.register("range-filter", RangeFilterController)
+
 import SwipePetsController from "./swipe_pets_controller"
 application.register("swipe-pets", SwipePetsController)

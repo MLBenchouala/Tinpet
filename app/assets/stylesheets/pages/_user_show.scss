@@ -30,9 +30,18 @@
   color: $lightpink;
 }
 
-.logo {
-  width: 30px;
-  position: relative;
-  top: -87px;
+.log-out-link {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 9999px;
+  i {
+    font-size: 1.5rem;
+  }
 }
