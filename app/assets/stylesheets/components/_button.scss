@@ -5,3 +5,16 @@
   text-decoration: none;
   color: #FF3767;
 }
+
+.search {
+  position: relative;
+  right: -107px;
+  border-radius: 5px;
+  border: #ff4b41b8 1.2px solid;
+}
+
+.search::placeholder {
+  color: #59120e;
+  opacity: .5;
+  font-style: italic;
+}

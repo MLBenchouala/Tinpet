@@ -7,6 +7,10 @@
   color: $lightpink;
   border-radius: 9999px;
   background-color: white;
+  padding: 10px 22px;
+  text-align: center;
+  width: 70vw;
+  align-self: center;
 }
 
 .mglftt{
@@ -16,4 +20,12 @@
 
 .clr{
   color: $lightpink;
+}
+
+.logo {
+  width: 30px;
+  position: relative;
+  top: -87px;
+  border-radius: 9999px;
+
 }

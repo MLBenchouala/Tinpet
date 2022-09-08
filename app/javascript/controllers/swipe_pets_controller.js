@@ -8,6 +8,7 @@ export default class extends Controller {
   static values = { ids: Array, currentId: Number, background: String }
 
   connect() {
+    console.log(this.nopeBtnTarget)
     this.csrf = document.querySelector("[name=csrf-token]").content
 
     this._initCards();
@@ -42,13 +43,31 @@ export default class extends Controller {
 
             background: `url(${this.backgroundValue})`,
             html:
-               `<div class="container">
-                  <div class="match--card photo_R"><img src="${data.user_1_photo}" /></div>
-                  <div class="match--card photo_L"><img src="${data.user_2_photo}" /></div>
+               `<div class="container zz">
+                <div class="match--card photo_R" >
+                  <img src="${data.user_1_photo}" />
                 </div>
-                <div class="match"><h2> It's a MATCH!</h2></div>
-                <div class="buton-log"><a href="/matches/${data.match_id}"class="btn">Envoyer un message</a></div>
-                <div><a href="/pets"class="buton-log">Continuer à swap</a></div>`
+                <div class="match--card photo_L pb-3">
+                  <img src="${data.user_2_photo}" />
+                </div>
+                </div>
+                <div class="match">
+                  <h2 class="match-alert pb-3">
+                    Vous avez un nouveau MATCH!
+                  </h2>
+                </div>
+                <div>
+                  <div class="buton-log" style="margin-bottom: 1rem;">
+                    <a style="color: #FF3767" href="/matches/${data.match_id}"class="btn">
+                      Envoyer un message
+                    </a>
+                  </div>
+                  <div>
+                    <a href="/pets"class="btn">
+                      Continuer à swiper
+                    </a>
+                  </div>
+                </div>`
           })
         }
       })

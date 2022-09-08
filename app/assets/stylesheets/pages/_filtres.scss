@@ -76,7 +76,7 @@
 .design-input {
   display: flex;
   align-items: center;
-  margin-bottom: 2rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .design-label-form{
@@ -92,6 +92,7 @@
 .mg-bt {
   margin-bottom: 2rem;
   text-align: center;
+  margin-top: -1rem ;
 }
 
 .tick-desgin{
@@ -106,4 +107,8 @@
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
     font-weight: light;
+}
+
+.mgtoppp{
+  margin-top: 2rem ;
 }

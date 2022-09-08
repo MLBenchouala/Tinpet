@@ -3,14 +3,10 @@
   <%= image_tag "patte2.jpg", class: "patte2"%>
 </div>
 
-<div class="d-flex">
-
-
-  <div class="px-4">
+<div class="">
+  <div class="px-4 flex-column">
     <%= cl_image_tag @pet.photos.first.key, class: "dog_image", alt: "Responsive image" %>
     <div class="my-4">
-
-
       <h2 class="pet_name"><strong><%= @pet.name %></strong></h2>
       <div class="d-flex">
         <div class="me-2">
@@ -36,9 +32,12 @@
       <% end %>
     </div>
 
+
       <% if policy(@pet).edit? %>
       <%= link_to "Modifier mon animal", edit_pet_path(@pet), class: "btn btn-primary w-100 my-3 btnstyle nmtop"%>
       <% end %>
+
     <div>
+
   </div>
 </div>
