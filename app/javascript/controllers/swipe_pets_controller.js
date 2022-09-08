@@ -53,12 +53,12 @@ export default class extends Controller {
                 </div>
                 <div class="match">
                   <h2 class="match-alert pb-3">
-                    Vous avez un nouveau MATCH!
+                    Vous avez un nouveau MATCH !
                   </h2>
                 </div>
                 <div>
                   <div class="buton-log" style="margin-bottom: 1rem;">
-                    <a style="color: #FF3767" href="/matches/${data.match_id}"class="btn">
+                    <a style="color: #FF3767" class="button-deco" href="/matches/${data.match_id}"class="btn">
                       Envoyer un message
                     </a>
                   </div>
