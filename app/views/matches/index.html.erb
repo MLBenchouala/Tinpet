@@ -5,6 +5,11 @@
 
 <h1 class="nomatch"><%= "Vos messages" if @matches.length > 0 %></h1>
 
+<%= form_tag matches_path, method: :get, class:"d-flex" do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Rechercher x Matchs ",  class:"search" %>
+  <button type="submit" class="d-none">  </button>
+<% end %>
+
 <% @matches.each do |match| %>
   <%= link_to match_path(match), class: "text"  do %>
 
@@ -16,7 +21,6 @@
           <div class="gg"><%= match.interlocutor_of(current_user).age %> ans</div>
         </div>
       </div>
-
 
       <div class="card-product-info k ">
         <% if Message.find_by(user: match.interlocutor_of(current_user), match: match) %>
