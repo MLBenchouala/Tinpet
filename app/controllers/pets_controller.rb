@@ -15,11 +15,7 @@ class PetsController < ApplicationController
       @user_walk = @search["user_walk"]
       @user_more = @search["user_more"]
       @users = User.where(age: age_range_h(@user_age)) if @user_age != ''
-
-      # @users = @users.near([current_user.latitude, current_user.longitude], @user_address.to_i, units: :km)
       @users = current_user.nearbys(@user_address.to_i)
-
-      # @users = @users.near(@venues) if @user_address != ''
 
       @users = @users.where("orientation ILIKE ?", "%#{@user_orientation}%") if @user_orientation != ''
       @users = @users.where("gender ILIKE ?", "%#{@user_gender}%") if @user_gender != ''
