@@ -9,7 +9,7 @@ export default class extends Controller {
     matchId: Number,
     userId: Number
   }
-  static targets = [ 'messages', 'form' ]
+  static targets = [ 'messages', 'form', 'submit' ]
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
@@ -44,6 +44,17 @@ export default class extends Controller {
     this.#scrollToBottom()
     this.resetForm()
   }
+
+  toggleSubmit(evt) {
+    const textLength = evt.target.value.length
+
+    if (textLength > 1) {
+      this.submitTarget.disabled = false
+    } else {
+      this.submitTarget.disabled = true
+    }
+  }
+
   #buildHTML(string) {
     const tmpDiv = document.createElement('div')
     tmpDiv.innerHTML = string
