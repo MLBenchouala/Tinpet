@@ -6,7 +6,7 @@
 <h1 class="nomatch"><%= "Vos messages" if @matches.length > 0 %></h1>
 <%= image_tag "loupe.jpg", class: "loupe", style: "margin-left: 0.5rem;" %>
 <%= form_tag matches_path, method: :get, class:"d-flex", style: "margin-left: 1rem;" do %>
-  <%= text_field_tag :query, params[:query], placeholder: "Rechercher #{@matches.length} Matchs " ,  class:"search" %>
+  <%= text_field_tag :query, params[:query], placeholder: "Rechercher #{@matches.length} Match " ,  class:"search" %>
   <button type="submit" class="d-none">  </button>
 <% end %>
 
