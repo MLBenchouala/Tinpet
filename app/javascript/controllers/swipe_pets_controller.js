@@ -44,8 +44,8 @@ export default class extends Controller {
 
             background: `url(${this.backgroundValue})`,
             html:
-               `<div class="container">
-                  <div class="match--card photo_R"><img src="${data.user_1_photo}" /></div>
+               `<div class="container zz">
+                  <div class="match--card photo_R" ><img src="${data.user_1_photo}" /></div>
                   <div class="match--card photo_L pb-3"><img src="${data.user_2_photo}" /></div>
                 </div>
                 <div class="match"><h2 class="match-alert pb-3">Vous avez un nouveau MATCH!</h2></div>
