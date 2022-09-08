@@ -1,12 +1,11 @@
-
 <div class="w-100 d-flex">
   <%= image_tag "patte2.jpg", class: "patte2"%>
-  <i class="fa-solid fa-arrows-rotate" data-controller="flip" data-action="click->flip#flip"></i>
 </div>
 
 <% if @pets.length == 0 %>
  <h1 class="flexx nomatch"><%= "Desolé il n'y plus de profils" %></h1>
 <% end %>
+
 <% if @pets.length != 0 %>
   <div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>" data-swipe-pets-background-value="<%= image_path "background.jpg" %>">
     <div class="tinder--cards">
@@ -59,9 +58,13 @@
         <button id="nope" data-swipe-pets-target="nopeBtn" data-action="click->swipe-pets#disliked">
           <i class="fa-solid fa-xmark rd"></i>
         </button>
+        <button class="flip-cta" data-controller="flip" data-action="click->flip#flip">
+          <i class="fa-solid fa-person-half-dress" data-flip-target="personIcon"></i>
+          <i class="fa-solid fa-dog d-none" data-flip-target="dogIcon"></i>
+        </button>
         <%= link_to pets_filtres_path, class: "btn btn-primary filters", id: "filter" do %>
           <i class="fa-solid fa-bars-progress"></i>
-          <% end %>
+        <% end %>
         <button id="love" data-swipe-pets-target="likeBtn" data-action="click->swipe-pets#liked">
           <i class="fa-regular fa-heart gr"></i>
         </button>
