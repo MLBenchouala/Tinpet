@@ -4,6 +4,11 @@
 </div>
 
 <h1 class="nomatch"><%= "Vos messages" if @matches.length > 0 %></h1>
+<%= image_tag "loupe.jpg", class: "loupe" %>
+<%= form_tag matches_path, method: :get, class:"d-flex" do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Rechercher #{@matches.length} Matchs " ,  class:"search" %>
+  <button type="submit" class="d-none">  </button>
+<% end %>
 
 <% @matches.each do |match| %>
   <%= link_to match_path(match), class: "text"  do %>
@@ -13,15 +18,13 @@
         <%= cl_image_tag match.interlocutor_of(current_user).photos.first.key, class: "avatar-matches me-2 dsgavatar"%>
         <div>
           <div><h2 class='tt'><strong><%= match.interlocutor_of(current_user).name %></strong></h2></div>
-          <div class="gg"><%= match.interlocutor_of(current_user).age %> ans</div>
+          <div class="gg">
+              <% if Message.find_by(user: match.interlocutor_of(current_user), match: match) %>
+            <p class='helllo'> <%= Message.where(user: match.interlocutor_of(current_user), match: match).last.content %> </p>
+
+              <% end %>
+          </div>
         </div>
-      </div>
-
-
-      <div class="card-product-info k ">
-        <% if Message.find_by(user: match.interlocutor_of(current_user), match: match) %>
-            <div> <p class="msg"> <%= Message.where(user: match.interlocutor_of(current_user), match: match).last.content %> </p></div>
-        <% end %>
       </div>
     </div>
   <% end %>

@@ -1,54 +1,71 @@
 
 <div class="w-100 d-flex">
   <%= image_tag "patte2.jpg", class: "patte2"%>
+  <i class="fa-solid fa-arrows-rotate" data-controller="flip" data-action="click->flip#flip"></i>
 </div>
 
 <% if @pets.length == 0 %>
  <h1 class="flexx nomatch"><%= "Desolé il n'y plus de profils" %></h1>
- <% end %>
+<% end %>
 <% if @pets.length != 0 %>
-
   <div class="tinder" data-controller="swipe-pets" data-swipe-pets-ids-value="<%= @pets.map(&:id) %>" data-swipe-pets-background-value="<%= image_path "background.jpg" %>">
     <div class="tinder--cards">
       <% @pets.each do |pet| %>
-        <div class="tinder--card styledborder" data-swipe-pets-target="card" data-id="<%= pet.id %>">
-          <div class="tinder--status">
-            <i class="fa-solid fa-xmark"></i>
-            <i class="fa fa-heart"></i>
-          </div>
-          <%= cl_image_tag pet.photos.first.key %>
-          <h3><%= pet.name %></h3>
-          <p class="tinder--card-subtitle"><%= pet.race %> | <%= pet.sexe.capitalize %></p>
+        <div class="tinder--card" data-swipe-pets-target="card" data-id="<%= pet.id %>">
+          <div class="tinder--card--inner">
+            <div class="tinder--card--front">
+              <div class="tinder--status">
+                <i class="fa-solid fa-xmark"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+              <%= cl_image_tag pet.photos.first.key %>
+              <h3><%= pet.name %></h3>
+              <p class="tinder--card-subtitle">
+                <%= pet.race %> | <%= pet.sexe.capitalize %>
+              </p>
 
-          <%# <p class="tinder--card-description"> %>
-          <%#= pet.description %>
-          <%# </p> %>
-
-            <div class="tinder--card-user">
+              <div class="tinder--card-user">
+                <%= cl_image_tag pet.user.photos.first.key %>
+                <div class="user-infos">
+                  <p class="name"><%= link_to "#{pet.user.name}", user_path(pet.user) %></p>
+                  <p class="infos"> <%= pet.user.address %> | <%= pet.user.age %></p>
+                </div>
+              </div>
+            </div>
+            <div class="tinder--card--back">
+              <div class="tinder--status">
+                <i class="fa-solid fa-xmark"></i>
+                <i class="fa fa-heart"></i>
+              </div>
               <%= cl_image_tag pet.user.photos.first.key %>
-              <div class="user-infos">
-              <p class="name"><%= link_to "#{pet.user.name}", user_path(pet.user), onclick: "console.log('hello')" %></p>
-              <p class="infos"> <%= pet.user.address %> | <%= pet.user.age %></p>
+              <h3><%= pet.user.name %></h3>
+              <p class="tinder--card-subtitle"> <%= pet.user.address %> | <%= pet.user.age %> </p>
+
+              <div class="tinder--card-user">
+                <%= cl_image_tag pet.photos.first.key %>
+                <div class="user-infos">
+                  <p class="name"><%= link_to "#{pet.name}", user_path(pet.user) %></p>
+                  <p class="infos"> <%= pet.race %> |<%= pet.sexe.capitalize %> </p>
+                </div>
               </div>
             </div>
           </div>
-        <% end %>
-      <% end %>
 
+        </div>
+      <% end %>
     </div>
     <% if @pets.length != 0 %>
-    <div class="tinder--buttons">
-      <button id="nope" data-swipe-pets-target="nopeBtn" data-action="click->swipe-pets#disliked">
-        <i class="fa-solid fa-xmark rd"></i>
-      </button>
-      <%= link_to pets_filtres_path, class: "btn btn-primary filters", id: "filter" do %>
-        <i class="fa-solid fa-bars-progress"></i>
-        <% end %>
-      <button id="love" data-swipe-pets-target="likeBtn" data-action="click->swipe-pets#liked">
-        <i class="fa-regular fa-heart gr"></i>
-      </button>
-    </div>
+      <div class="tinder--buttons">
+        <button id="nope" data-swipe-pets-target="nopeBtn" data-action="click->swipe-pets#disliked">
+          <i class="fa-solid fa-xmark rd"></i>
+        </button>
+        <%= link_to pets_filtres_path, class: "btn btn-primary filters", id: "filter" do %>
+          <i class="fa-solid fa-bars-progress"></i>
+          <% end %>
+        <button id="love" data-swipe-pets-target="likeBtn" data-action="click->swipe-pets#liked">
+          <i class="fa-regular fa-heart gr"></i>
+        </button>
+      </div>
     <% end %>
   </div>
-
-</div>
+<% end %>

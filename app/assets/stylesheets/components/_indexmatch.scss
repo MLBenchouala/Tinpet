@@ -37,8 +37,16 @@
   width: 3rem !important;
   border-radius: 9999px !important;
   margin-right: 1.4rem !important;
+  margin-left: 0.5rem;
 }
 
 .gg {
   font-size: 12px;
+}
+
+.loupe {
+  position: relative;
+  width: 24px;
+  right: -77px;
+  top: 28px;
 }

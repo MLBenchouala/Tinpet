@@ -8,8 +8,8 @@ export default class extends Controller {
   static values = { ids: Array, currentId: Number, background: String }
 
   connect() {
+    console.log(this.nopeBtnTarget)
     this.csrf = document.querySelector("[name=csrf-token]").content
-    console.log(this.csrf)
 
     this._initCards();
     this._initSwipe();
@@ -24,11 +24,11 @@ export default class extends Controller {
 
     // this.likeEvent = new Event('liked');
     // this.dislikeEvent = new Event('disliked');
-    this._updateCurentId()
+    this._updateCurrentId()
   }
 
   liked(id) {
-    this._updateCurentId()
+    this._updateCurrentId()
 
     const options = {
       method: "POST",
@@ -38,36 +38,46 @@ export default class extends Controller {
     fetch(`/pets/${this.currentId}/swipes?liked=true`, options)
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
         if (data.matched) {
           Swal.fire({
 
             background: `url(${this.backgroundValue})`,
             html:
-               `<div class="container">
-                  <div class="match--card photo_R"><img src="${data.user_1_photo}" /></div>
-                  <div class="match--card photo_L pb-3"><img src="${data.user_2_photo}" /></div>
+               `<div class="container zz">
+                <div class="match--card photo_R" >
+                  <img src="${data.user_1_photo}" />
                 </div>
-                <div class="match"><h2 class="match-alert pb-3">Vous avez un nouveau MATCH !</h2></div>
-
+                <div class="match--card photo_L pb-3">
+                  <img src="${data.user_2_photo}" />
+                </div>
+                </div>
+                <div class="match">
+                  <h2 class="match-alert pb-3">
+                    Vous avez un nouveau MATCH !
+                  </h2>
+                </div>
                 <div>
-                <div class="buton-log" style="margin-bottom: 1rem;"><a style="color: #FF3767" class="button-deco" href="/matches/${data.match_id}"class="btn">Envoyer un message</a></div>
-                <div><a href="/pets"class="btn">Continuer à swiper</a></div>
-                </div>
-
-
-                `
+                  <div class="buton-log" style="margin-bottom: 1rem;">
+                    <a style="color: #FF3767" class="button-deco" href="/matches/${data.match_id}"class="btn">
+                      Envoyer un message
+                    </a>
+                  </div>
+                  <div>
+                    <a href="/pets"class="btn">
+                      Continuer à swiper
+                    </a>
+                  </div>
+                </div>`
           })
         }
       })
 
-    this._updateCurentId()
+    this._updateCurrentId()
   }
 
   disliked(elementId) {
-    this._updateCurentId()
+    this._updateCurrentId()
 
-    console.log('bye',this.currentId)
     const options = {
       method: "POST",
       headers: { "Accept": "application/json", "X-CSRF-TOKEN": this.csrf }
@@ -76,16 +86,19 @@ export default class extends Controller {
     fetch(`/pets/${this.currentId}/swipes?liked=false`, options)
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
       })
 
-    this._updateCurentId()
+    this._updateCurrentId()
 
   }
 
-  _updateCurentId() {
-    this.currentId = this.cardTargets
-                              .filter((item) => !item.classList.contains('removed'))[0].dataset.id
+  _updateCurrentId() {
+    const currentCard = this.cardTargets
+                              .filter((item) => !item.classList.contains('removed'))[0]
+    if (currentCard) {
+      this.currentId = currentCard.dataset.id
+    }
   }
 
   _initCards(card, index) {
@@ -93,7 +106,7 @@ export default class extends Controller {
 
     cards.forEach((card, index) => {
       card.style.zIndex = cards.length - index;
-      card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
+      card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 0 * index + 'px)';
       card.style.opacity = (10 - index) / 10;
     });
 
@@ -122,7 +135,12 @@ export default class extends Controller {
       el.classList.toggle('tinder_nope', event.deltaX < 0);
 
       const rotate = event.deltaX * 0.03 * event.deltaY / 80;
-      event.target.style.transform = `translate(${event.deltaX}px, ${event.deltaY}px) rotate(${rotate}deg)`;
+
+      if (event.target.classList.contains('flipped')) {
+        event.target.style.transform = `translate(${event.deltaX}px, ${event.deltaY}px) rotate(${rotate}deg) rotateY(180deg)`;
+      } else {
+        event.target.style.transform = `translate(${event.deltaX}px, ${event.deltaY}px) rotate(${rotate}deg)`;
+      }
     });
   }
 
@@ -135,13 +153,12 @@ export default class extends Controller {
 
       if (!keep && event.additionalEvent === 'panright') {
         this.liked(event.target.dataset.id)
-        console.log('like', event.target.dataset.id)
       } else if (!keep && event.additionalEvent === 'panleft') {
         this.disliked(event.target.dataset.id)
       }
 
       event.target.classList.toggle('removed', !keep);
-      this._updateCurentId()
+      this._updateCurrentId()
       if (keep) {
         event.target.style.transform = '';
       } else {
@@ -169,7 +186,7 @@ export default class extends Controller {
 
     card.style.transform = `translate(${minus}${moveOutWidth}px, -100px) rotate(${minus}30deg)`;
     card.classList.add('removed');
-    this._updateCurentId()
+    this._updateCurrentId()
 
     this._initCards();
     event.preventDefault();
