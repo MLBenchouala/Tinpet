@@ -1,3 +1,11 @@
 .match-alert {
   font-family: 'Poppins', sans-serif;
 }
+
+.button-deco:active {
+  border: none;
+}
+
+.button-deco:focus-visible {
+  outline: none;
+}
