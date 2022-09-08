@@ -1,4 +1,4 @@
-<div class='wrapper-form'>
+<div class='wrapper-form' data-controller="range-filter">
   <%= simple_form_for :search, url: pets_path, method: "GET", html: { class: 'form-inline' } do |f| %>
     <h1 class='pet_name mg-bt'>Filters for pets</h1>
     <%= f.input :age, collection: ['0 - 4 ans', '4 - 8 ans', '8 ans et +'], input_html: {value: ""}, required: false, wrapper_html: { class: 'design-input' }, label_html: {class: 'design-label-form'} %>
@@ -8,7 +8,8 @@
     <h1 class='pet_name mg-bt mgtoppp'>Filters for users</h1>
 
     <%= f.input :user_age, collection: ['18 - 25 ans', '25 - 35 ans', '35 - 45 ans', '45 ans et +'], input_html: {value: ""}, required: false, wrapper_html: { class: 'design-input' }, label_html: {class: 'design-label-form'}, label: 'Age' %>
-    <%= f.input :user_address, input_html: {value: ""}, required: false, wrapper_html: { class: 'design-input' }, label_html: {class: 'design-label-form'}, label: 'Address' %>
+    <%= f.input :user_address, as: :range, label: 'Distance', required: false, wrapper_html: { class: 'design-input' }, label_html: {class: 'design-label-form'}, prompt: "my data", input_html: {min: 0, max: 100, step: 10, data: { range_filter_target: 'range', action: 'input->range-filter#change' }, class: "mmm"}, value: 0, collection: 0..45 %>
+    <span id="range-output" class="lplp">50 km</span>
     <%= f.input :user_orientation, collection: ['Hétero', 'Homo'], input_html: {value: ""}, required: false, wrapper_html: { class: 'design-input' }, label_html: {class: 'design-label-form'}, label: 'Orientation' %>
     <%= f.input :user_gender, collection: ['Homme', 'Femme'], input_html: {value: ""}, required: false, wrapper_html: { class: 'design-input' }, label_html: {class: 'design-label-form'}, label: 'Gender' %>
     <div class = 'tick-desgin'>

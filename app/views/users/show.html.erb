@@ -2,10 +2,9 @@
   <%= image_tag "patte2.jpg", class: "patte2"%>
 </div>
 <% if current_user == @user %>
-<div class="jo"><%= link_to destroy_user_session_path,  data: {turbo_method: :delete} do %>
-          <%= image_tag "logo-deco.jpeg", class: "logo" %>
-      <% end %>
-</div>
+  <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "log-out-link" do %>
+    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+  <% end %>
 <% end %>
 
 <div class="d-flex">
