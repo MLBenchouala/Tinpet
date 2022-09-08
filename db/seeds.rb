@@ -55,7 +55,7 @@ user_10.photos.attach(io: file, filename: "user")
 user_10.save!
 
 user_11 = User.new(name: "Mathilde", walk: true, more: true, description: "Qui m'aime aime mon chien", age: 27, gender: "femme", orientation: "hétéro", email: "11.11@test.com", password: "123456", address: "Paris")
-file = URI.open("https://elcomercio.pe/resizer/e9OMjX0QY-kZUMf2ElvIjDyxnLs=/1200x1200/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/VJ5W445AARB6VD3PVR7ZPFIXYA.jpg")
+file = URI.open("https://i.pinimg.com/550x/20/15/4b/20154b24d267ebde046fd11ad1190ff3.jpg")
 user_11.photos.attach(io: file, filename: "user")
 user_11.save!
 
@@ -104,7 +104,7 @@ file = File.open(File.join(Rails.root, "/app/assets/images/photo-profil-Julien.p
 user_20.photos.attach(io: file, filename: "user")
 user_20.save!
 
-user_21 = User.new(name: "Chloé", walk: true, more: true, description: "J'adore les chiens mais quand ils marchent à 4 pattes donc vous savez quoi faire...", age: 23, gender: "femme", orientation: "hétéro", email: "21.21@test.com", password: "123456", address: "Paris")
+user_21 = User.new(name: "Chloé", walk: true, more: true, description: "La difference entre moi et ma chienne c'est le prix du collier", age: 23, gender: "femme", orientation: "hétéro", email: "21.21@test.com", password: "123456", address: "Paris")
 file = URI.open("https://images.mubicdn.net/images/cast_member/24168/cache-2073-1604954460/image-w856.jpg?size=800x")
 user_21.photos.attach(io: file, filename: "user")
 user_21.save!
