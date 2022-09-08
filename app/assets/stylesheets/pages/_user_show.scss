@@ -7,10 +7,18 @@
   color: $lightpink;
   border-radius: 9999px;
   background-color: white;
-  padding: 10px 22px;
+  padding: 10px 86px;
   text-align: center;
   width: 70vw;
   align-self: center;
+}
+
+.btnstyle:focus-visible {
+  outline: none;
+}
+
+.btnstyle:hover {
+  color: $lightpink !important;
 }
 
 .mglftt{
