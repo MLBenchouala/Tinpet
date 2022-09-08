@@ -27,7 +27,7 @@
                 <%= cl_image_tag pet.user.photos.first.key %>
                 <div class="user-infos">
                   <p class="name"><%= link_to "#{pet.user.name}", user_path(pet.user) %></p>
-                  <p class="infos"> <%= pet.user.address %> | <%= pet.user.age %></p>
+                  <p class="infos"> <%= pet.user.address %> | <%= pet.user.age %> ans</p>
                 </div>
               </div>
             </div>
@@ -38,13 +38,13 @@
               </div>
               <%= cl_image_tag pet.user.photos.first.key %>
               <h3><%= pet.user.name %></h3>
-              <p class="tinder--card-subtitle"> <%= pet.user.address %> | <%= pet.user.age %> </p>
+              <p class="tinder--card-subtitle"> <%= pet.user.address %> | <%= pet.user.age %> ans </p>
 
               <div class="tinder--card-user">
                 <%= cl_image_tag pet.photos.first.key %>
                 <div class="user-infos">
                   <p class="name"><%= link_to "#{pet.name}", user_path(pet.user) %></p>
-                  <p class="infos"> <%= pet.race %> |<%= pet.sexe.capitalize %> </p>
+                  <p class="infos"> <%= pet.race %> | <%= pet.sexe.capitalize %> </p>
                 </div>
               </div>
             </div>
