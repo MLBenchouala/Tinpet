@@ -2,8 +2,7 @@ class PetsController < ApplicationController
   before_action :set_pet, only: %i[show update destroy edit]
 
   def index
-    @pets = policy_scope(Pet).where.not(user: current_user)
-    @pets = @pets.where.not(id: current_user.swipes.pluck(:pet_id))
+    @pets = policy_scope(Pet).where.not(user: current_user, id: current_user.swipes.pluck(:pet_id))
     @search = params["search"]
     @users = User.all
     if @search.present?
@@ -14,8 +13,8 @@ class PetsController < ApplicationController
       @user_gender = @search["user_gender"]
       @user_walk = @search["user_walk"]
       @user_more = @search["user_more"]
-      @users = User.where(age: age_range_h(@user_age)) if @user_age != ''
       @users = current_user.nearbys(@user_address.to_i)
+      @users = @users.where(age: age_range_h(@user_age)) if @user_age != ''
 
       @users = @users.where("orientation ILIKE ?", "%#{@user_orientation}%") if @user_orientation != ''
       @users = @users.where("gender ILIKE ?", "%#{@user_gender}%") if @user_gender != ''
@@ -30,7 +29,7 @@ class PetsController < ApplicationController
         @users = @users.where(more: false) if @user_more == '0'
       end
 
-      @pets = Pet.where(user_id: @users.to_a.map(&:id))
+      @pets = @pets.where(user_id: @users.to_a.map(&:id))
 
       @sexe = @search["sexe"]
       @race = @search["race"]
